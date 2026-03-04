@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
+import { toast } from "sonner";
 
 export default function SignupPage() {
   const router = useRouter();
@@ -25,6 +26,7 @@ export default function SignupPage() {
 
     if (formData.password !== formData.confirmPassword) {
       setError("Passwords do not match");
+      toast.error("Passwords do not match");
       setLoading(false);
       return;
     }
@@ -44,7 +46,9 @@ export default function SignupPage() {
 
       if (!res.ok) {
         setError(data.error || "Signup failed");
+        toast.error(data.error || "Signup failed");
       } else {
+        toast.success("Account created successfully!");
         // Log in automatically after signup
         await signIn("credentials", {
           redirect: false,
@@ -55,6 +59,7 @@ export default function SignupPage() {
       }
     } catch (err) {
       setError("An unexpected error occurred");
+      toast.error("An unexpected error occurred");
     } finally {
       setLoading(false);
     }

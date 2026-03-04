@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "@/components/shared/Toaster";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -14,6 +15,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXTAUTH_URL ?? "http://localhost:3000"),
   title: "DevMentor AI | Stop Learning to Code Alone",
   description: "DevMentor AI is an AI-powered mentorship platform for self-taught developers. Get personalized roadmaps, instant code reviews, and daily guidance to accelerate your career.",
   keywords: ["AI mentor", "coding bootcamp alternative", "learn to code", "self-taught developer", "coding roadmap", "code review", "personalized learning"],
@@ -65,6 +67,7 @@ export default function RootLayout({
         className={`${spaceGrotesk.variable} antialiased bg-background-light text-text-main font-display`}
       >
         {children}
+        <Toaster />
       </body>
     </html>
   );
