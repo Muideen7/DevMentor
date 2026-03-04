@@ -36,7 +36,7 @@ export default function Navbar() {
 
           <div className="flex items-center gap-4">
             <Link 
-              href="/signup" 
+              href="/login" 
               className="hidden sm:block bg-primary text-white px-6 py-2.5 rounded-full text-sm font-bold hover:opacity-90 transition-opacity"
             >
               Get Started Free
@@ -80,7 +80,7 @@ export default function Navbar() {
           ))}
           <div className="pt-8 pt-auto pb-12">
             <Link 
-              href="/signup" 
+              href="/login" 
               className="block w-full bg-primary text-white text-center py-4 rounded-full text-lg font-bold shadow-lg shadow-primary/20"
               onClick={() => setIsMenuOpen(false)}
             >

@@ -12,18 +12,53 @@ const options = [
   { id: "allin", title: "30+", label: "All In", desc: "You're treating this like a job. Your roadmap will be accelerated accordingly.", hours: 40 },
 ];
 
+import { useSession } from "next-auth/react";
+
 export default function Step3Page() {
   const router = useRouter();
+  const { data: session, update } = useSession();
   const { goal, currentLevel, stack, hoursPerWeek, setHours } = useOnboardingStore();
   const [loading, setLoading] = useState(false);
 
   const handleGenerate = async () => {
+    if (!hoursPerWeek) return;
     setLoading(true);
-    // In a real app, this would call an API to generate the roadmap with AI
-    // For now, we simulate a delay and then redirect to dashboard
-    setTimeout(() => {
-      router.push("/dashboard");
-    }, 3000);
+
+    try {
+      const response = await fetch("/api/onboarding/complete", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          goal,
+          currentLevel,
+          stack,
+          hoursPerWeek,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        // Refresh the session in real-time
+        await update({
+          user: {
+            ...session?.user,
+            onboardingComplete: true
+          }
+        });
+        
+        // Next.js layout should already redirect based on middleware
+        // But for safe measure we'll push to dashboard
+        router.push("/dashboard");
+      } else {
+        alert(data.error || "Failed to complete onboarding");
+        setLoading(false);
+      }
+    } catch (error) {
+      console.error("Error completing onboarding:", error);
+      alert("Something went wrong. Please try again.");
+      setLoading(false);
+    }
   };
 
   return (

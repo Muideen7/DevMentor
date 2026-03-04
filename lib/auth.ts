@@ -1,23 +1,15 @@
 import NextAuth from "next-auth"
-import Google from "next-auth/providers/google"
 import Credentials from "next-auth/providers/credentials"
 import { z } from "zod"
 import bcrypt from "bcryptjs"
 import { connectDB } from "@/lib/db/mongoose"
 import User from "@/lib/db/models/User"
-
-// For the adapter, we need a raw client or a way to get one. 
-// However, many Next.js 15+ implementations use the standard Mongoose connection for queries 
-// and potentially a simple raw client for the adapter if needed.
-// For now, let's configure the basics for version 5.
+import { authConfig } from "./auth.config"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
-  secret: process.env.AUTH_SECRET,
+  ...authConfig,
   providers: [
-    Google({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    }),
+    ...authConfig.providers,
     Credentials({
       async authorize(credentials) {
         const parsedCredentials = z
@@ -29,7 +21,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           await connectDB()
           const user = await User.findOne({ email })
           if (!user || !user.password) return null
-          
+
           const passwordsMatch = await bcrypt.compare(password, user.password)
           if (passwordsMatch) return user
         }
@@ -38,25 +30,34 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       },
     }),
   ],
-  pages: {
-    signIn: '/login',
-  },
   callbacks: {
-    async session({ session, token }: any) {
-      if (token.sub && session.user) {
-        session.user.id = token.sub
-        session.user.onboardingComplete = token.onboardingComplete
+    ...authConfig.callbacks,
+    async signIn({ user, account }: any) {
+      if (account?.provider === "google") {
+        try {
+          await connectDB()
+          const existingUser = await User.findOne({ email: user.email })
+
+          if (!existingUser) {
+            const newUser = await User.create({
+              name: user.name,
+              email: user.email,
+              image: user.image,
+              onboardingComplete: false,
+            })
+            user.id = newUser._id.toString()
+            user.onboardingComplete = false
+          } else {
+            user.id = existingUser._id.toString()
+            user.onboardingComplete = existingUser.onboardingComplete
+          }
+          return true
+        } catch (error) {
+          console.error("Error during Google sign in:", error)
+          return false
+        }
       }
-      return session
+      return true
     },
-    async jwt({ token, user, trigger, session }: any) {
-      if (user) {
-        token.sub = user.id
-        token.onboardingComplete = user.onboardingComplete
-      }
-      // If onboarding is completed later, we might need a sync trigger or refresh.
-      // For now we just initialize it at login.
-      return token
-    }
   }
 })

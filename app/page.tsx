@@ -26,7 +26,7 @@ export default function LandingPage() {
             No senior dev? No problem. DevMentor builds your roadmap, reviews your code, and guides you through every block — at 2am if it has to.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
-            <Link href="/signup" className="w-full sm:w-auto bg-primary text-white px-10 py-4 rounded-full text-lg font-bold hover:scale-105 transition-transform text-center">
+            <Link href="/login" className="w-full sm:w-auto bg-primary text-white px-10 py-4 rounded-full text-lg font-bold hover:scale-105 transition-transform text-center">
               Start Learning Free
             </Link>
             <button className="w-full sm:w-auto bg-white/20 backdrop-blur-md border border-white/30 px-10 py-4 rounded-full text-lg font-bold flex items-center justify-center gap-2">
@@ -310,7 +310,7 @@ export default function LandingPage() {
                   Community Feed Access
                 </li>
               </ul>
-              <Link href="/signup" className="block w-full text-center py-4 rounded-full border-2 border-primary font-bold hover:bg-primary hover:text-white transition-colors">
+              <Link href="/login" className="block w-full text-center py-4 rounded-full border-2 border-primary font-bold hover:bg-primary hover:text-white transition-colors">
                 Join Free
               </Link>
             </div>
@@ -340,7 +340,7 @@ export default function LandingPage() {
                   Priority Concept Explanation
                 </li>
               </ul>
-              <Link href="/signup" className="block w-full text-center py-4 rounded-full bg-primary text-white font-bold hover:scale-105 transition-transform">
+              <Link href="/login" className="block w-full text-center py-4 rounded-full bg-primary text-white font-bold hover:scale-105 transition-transform">
                 Go Pro
               </Link>
             </div>
@@ -365,7 +365,7 @@ export default function LandingPage() {
                   Monthly Live Q&A Sessions
                 </li>
               </ul>
-              <Link href="/signup" className="block w-full text-center py-4 rounded-full border-2 border-primary font-bold hover:bg-primary hover:text-white transition-colors">
+              <Link href="/login" className="block w-full text-center py-4 rounded-full border-2 border-primary font-bold hover:bg-primary hover:text-white transition-colors">
                 Select Cohort
               </Link>
             </div>
@@ -410,7 +410,7 @@ export default function LandingPage() {
           <div className="relative z-10">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Stop learning alone.</h2>
             <p className="text-lg mb-10 opacity-80">Join 2,400+ developers building their dreams today.</p>
-            <Link href="/signup" className="bg-primary text-white px-12 py-5 rounded-full text-xl font-bold hover:scale-105 transition-transform inline-block">
+            <Link href="/login" className="bg-primary text-white px-12 py-5 rounded-full text-xl font-bold hover:scale-105 transition-transform inline-block">
               Start Learning Free Today
             </Link>
           </div>
