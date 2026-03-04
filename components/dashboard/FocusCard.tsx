@@ -55,7 +55,7 @@ export default function FocusCard({
             {description}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3">
+          <div className="flex">
             <Link
               href={continuePath}
               className="px-8 py-3.5 bg-primary text-white rounded-full font-bold text-xs flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg shadow-primary/10"
@@ -72,16 +72,6 @@ export default function FocusCard({
                 </>
               )}
             </Link>
-
-            {hasRoadmap && (
-              <Link
-                href="/dashboard/roadmap"
-                className="px-6 py-3.5 bg-slate-50 text-slate-700 border border-slate-200 rounded-full font-bold text-xs flex items-center justify-center gap-2 hover:bg-slate-100 transition-all"
-              >
-                <span className="material-symbols-outlined text-sm">map</span>
-                View Full Roadmap
-              </Link>
-            )}
           </div>
         </div>
 

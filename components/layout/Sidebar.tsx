@@ -22,13 +22,14 @@ export default function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
   }, [])
 
   const menuItems = [
-    { title: "Home", icon: "home", path: "/dashboard" },
+    { title: "Dashboard", icon: "dashboard", path: "/dashboard" },
     { title: "My Roadmap", icon: "map", path: "/roadmap" },
     { title: "Code Review", icon: "code", path: "/code-review" },
     { title: "Daily Check-in", icon: "event_available", path: "/check-in" },
     { title: "Concept Library", icon: "library_books", path: "/concepts" },
     { title: "Community", icon: "groups", path: "/community" },
     { title: "Progress History", icon: "history", path: "/progress" },
+    { title: "Billing", icon: "payments", path: "/billing" },
   ]
 
   if (!mounted) return null
@@ -127,7 +128,7 @@ export default function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
             <div className="mt-8 p-5 bg-accent-coral/10 rounded-2xl border border-accent-coral/20 mb-6 bg-[#FDF0EF] dark:bg-accent-coral/5">
               <p className="text-[10px] font-black text-accent-coral uppercase tracking-widest mb-2">Upgrade Nudge</p>
               <p className="text-xs text-slate-700 dark:text-slate-300 mb-4 leading-relaxed font-medium">Get unlimited AI code reviews and personalized mentoring.</p>
-              <button className="w-full py-2.5 bg-accent-coral text-white rounded-full text-[10px] font-black uppercase tracking-wider hover:brightness-110 transition-all shadow-md shadow-accent-coral/20">Go Pro</button>
+              <Link href="/billing" className="w-full py-2.5 bg-accent-coral text-white rounded-full text-[10px] font-black uppercase tracking-wider hover:brightness-110 transition-all shadow-md shadow-accent-coral/20 flex items-center justify-center">Go Pro</Link>
             </div>
           )}
         </div>
@@ -135,7 +136,7 @@ export default function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
         {/* Bottom Actions - Non-scrollable */}
         <div className="mt-auto p-6 pt-2 shrink-0 flex flex-col gap-1 border-t border-slate-100 dark:border-zinc-800">
           <Link 
-            href="/dashboard/settings"
+            href="/settings"
             className={cn(
               "flex items-center gap-3 text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-white transition-colors group",
               isOpen ? "px-4 py-2" : "w-12 h-10 justify-center mx-auto"

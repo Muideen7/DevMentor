@@ -9,10 +9,10 @@ interface GreetingHeaderProps {
 
 function getGreeting(): { word: string; emoji: string } {
   const hour = new Date().getHours()
-  if (hour >= 5 && hour < 12) return { word: "Good morning", emoji: "☀️" }
-  if (hour >= 12 && hour < 17) return { word: "Good afternoon", emoji: "🌤️" }
-  if (hour >= 17 && hour < 21) return { word: "Good evening", emoji: "🌇" }
-  return { word: "Hey", emoji: "🌙" }
+  if (hour >= 5 && hour < 12) return { word: "Good morning", emoji: "👋" }
+  if (hour >= 12 && hour < 17) return { word: "Good afternoon", emoji: "👋" }
+  if (hour >= 17 && hour < 21) return { word: "Good evening", emoji: "👋" }
+  return { word: "Welcome back", emoji: "👋" }
 }
 
 export default function GreetingHeader({ firstName, activeWeekTitle }: GreetingHeaderProps) {
@@ -20,11 +20,11 @@ export default function GreetingHeader({ firstName, activeWeekTitle }: GreetingH
   const { word, emoji } = useMemo(() => getGreeting(), [])
 
   return (
-    <header className="mb-12">
-      <h1 className="text-4xl md:text-5xl font-black tracking-tight text-slate-900 border-l-[10px] border-accent-coral pl-6 leading-tight">
+    <header className="mb-8">
+      <h1 className="text-3xl md:text-4xl font-black tracking-tight text-slate-900 leading-tight">
         {word}, {firstName} {emoji}
       </h1>
-      <p className="text-slate-500 mt-4 text-base md:text-lg font-medium ml-8 leading-relaxed">
+      <p className="text-slate-500 mt-2 text-base font-medium leading-relaxed">
         {activeWeekTitle ? (
           <>
             Ready to master{" "}
