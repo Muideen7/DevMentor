@@ -2,7 +2,11 @@ import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
 
-export async function GET() {
+export const alt = 'DevMentor AI'
+export const size = { width: 1200, height: 630 }
+export const contentType = 'image/png'
+
+export default async function Image() {
   return new ImageResponse(
     (
       <div
@@ -18,7 +22,6 @@ export async function GET() {
             'radial-gradient(circle at center, rgba(232, 115, 106, 0.15) 0%, rgba(245, 244, 242, 1) 100%)',
         }}
       >
-        {/* Logo circle */}
         <div
           style={{
             display: 'flex',
@@ -47,7 +50,6 @@ export async function GET() {
           </svg>
         </div>
 
-        {/* Headline — display:flex required for Satori to render the span */}
         <div
           style={{
             display: 'flex',
@@ -63,7 +65,6 @@ export async function GET() {
           <span style={{ color: '#E8736A', marginLeft: '12px' }}>AI</span>
         </div>
 
-        {/* Subtext */}
         <div
           style={{
             display: 'flex',
