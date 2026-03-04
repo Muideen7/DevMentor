@@ -1,8 +1,8 @@
-import { ImageResponse } from 'next/og';
+import { ImageResponse } from 'next/og'
 
-export const runtime = 'edge';
+export const runtime = 'edge'
 
-export default async function Image() {
+export async function GET() {
   return new ImageResponse(
     (
       <div
@@ -14,9 +14,11 @@ export default async function Image() {
           alignItems: 'center',
           justifyContent: 'center',
           backgroundColor: '#F5F4F2',
-          backgroundImage: 'radial-gradient(circle at center, rgba(232, 115, 106, 0.15) 0%, rgba(245, 244, 242, 1) 100%)',
+          backgroundImage:
+            'radial-gradient(circle at center, rgba(232, 115, 106, 0.15) 0%, rgba(245, 244, 242, 1) 100%)',
         }}
       >
+        {/* Logo circle */}
         <div
           style={{
             display: 'flex',
@@ -29,7 +31,6 @@ export default async function Image() {
             boxShadow: '0 20px 50px rgba(0,0,0,0.1)',
           }}
         >
-          {/* Diamond Icon Placeholder - SVG */}
           <svg
             width="80"
             height="80"
@@ -45,19 +46,27 @@ export default async function Image() {
             <path d="M2 9h20" />
           </svg>
         </div>
+
+        {/* Headline — display:flex required for Satori to render the span */}
         <div
           style={{
             display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
             fontSize: '80px',
             fontWeight: 'bold',
             color: '#1A1A1A',
             letterSpacing: '-0.05em',
           }}
         >
-          DevMentor <span style={{ color: '#E8736A', marginLeft: '12px' }}>AI</span>
+          <span>DevMentor</span>
+          <span style={{ color: '#E8736A', marginLeft: '12px' }}>AI</span>
         </div>
+
+        {/* Subtext */}
         <div
           style={{
+            display: 'flex',
             fontSize: '32px',
             color: '#6B6B6B',
             marginTop: '24px',
@@ -74,5 +83,5 @@ export default async function Image() {
       width: 1200,
       height: 630,
     }
-  );
+  )
 }
