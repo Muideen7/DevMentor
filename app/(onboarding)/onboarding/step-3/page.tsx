@@ -13,11 +13,12 @@ const options = [
 ];
 
 import { useSession } from "next-auth/react";
+import RoadmapLoading from "@/components/onboarding/RoadmapLoading";
 
 export default function Step3Page() {
   const router = useRouter();
   const { data: session, update } = useSession();
-  const { goal, currentLevel, stack, hoursPerWeek, setHours } = useOnboardingStore();
+  const { goal, currentLevel, stack, hoursPerWeek, reset, setHours } = useOnboardingStore();
   const [loading, setLoading] = useState(false);
 
   const handleGenerate = async () => {
@@ -25,7 +26,8 @@ export default function Step3Page() {
     setLoading(true);
 
     try {
-      const response = await fetch("/api/onboarding/complete", {
+      // 1. Complete onboarding in the database
+      const profileResponse = await fetch("/api/onboarding/complete", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -36,30 +38,43 @@ export default function Step3Page() {
         }),
       });
 
-      const data = await response.json();
+      const profileData = await profileResponse.json();
 
-      if (data.success) {
-        // Refresh the session in real-time
-        await update({
-          user: {
-            ...session?.user,
-            onboardingComplete: true
-          }
-        });
-        
-        // Next.js layout should already redirect based on middleware
-        // But for safe measure we'll push to dashboard
-        router.push("/dashboard");
-      } else {
-        alert(data.error || "Failed to complete onboarding");
-        setLoading(false);
+      if (!profileResponse.ok) {
+        throw new Error(profileData.error || "Failed to save profile");
       }
-    } catch (error) {
-      console.error("Error completing onboarding:", error);
-      alert("Something went wrong. Please try again.");
+
+      // 2. Refresh session status
+      await update({
+        user: {
+          ...session?.user,
+          onboardingComplete: true
+        }
+      });
+
+      // 3. Trigger roadmap generation via AI
+      const roadmapResponse = await fetch("/api/ai/roadmap", {
+        method: "POST",
+      });
+
+      const roadmapData = await roadmapResponse.json();
+
+      if (!roadmapResponse.ok || !roadmapData.success) {
+        throw new Error(roadmapData.error || "Failed to generate roadmap");
+      }
+
+      // Final success
+      reset();
+      router.push("/dashboard");
+
+    } catch (error: any) {
+      console.error("Onboarding error:", error);
+      alert(error.message || "Something went wrong. Please try again.");
       setLoading(false);
     }
   };
+
+  if (loading) return <RoadmapLoading />;
 
   return (
     <>

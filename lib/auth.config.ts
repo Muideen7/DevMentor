@@ -13,15 +13,15 @@ export const authConfig = {
     },
     callbacks: {
         async session({ session, token }: any) {
-            if (token.sub && session.user) {
-                session.user.id = token.sub
+            if (session.user) {
+                session.user.id = token.id || token.sub
                 session.user.onboardingComplete = token.onboardingComplete
             }
             return session
         },
         async jwt({ token, user, trigger, session }: any) {
             if (user) {
-                token.sub = user.id
+                token.id = user.id
                 token.onboardingComplete = user.onboardingComplete
             }
 

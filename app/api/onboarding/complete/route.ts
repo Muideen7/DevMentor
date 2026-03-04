@@ -15,27 +15,48 @@ export async function POST(req: Request) {
     try {
         const session = await auth()
         if (!session?.user?.id) {
-            return NextResponse.json({ success: false, error: "Unauthorized", code: 401 }, { status: 401 })
+            console.error("Onboarding complete: No user ID in session", session)
+            return NextResponse.json({ success: false, error: "Unauthorized: No user ID in session", code: 401 }, { status: 401 })
         }
 
-        const body = await req.json()
-        const validatedData = OnboardingCompleteSchema.parse(body)
+        const body = await req.json().catch(() => ({}))
+        console.log("Onboarding complete: Received body:", body)
 
+        // Parse data
+        let validatedData
+        try {
+            validatedData = OnboardingCompleteSchema.parse(body)
+        } catch (zodError: any) {
+            console.error("Onboarding complete: Validation failed:", zodError.errors)
+            return NextResponse.json({
+                success: false,
+                error: `Validation error: ${zodError.errors[0]?.message || "Invalid data"}`,
+                code: 400
+            }, { status: 400 })
+        }
+
+        console.log("Onboarding complete: Connecting to DB...")
         await connectDB()
 
+        console.log(`Onboarding complete: Updating user ${session.user.id}...`)
         const updatedUser = await User.findByIdAndUpdate(
             session.user.id,
             {
-                ...validatedData,
+                goal: validatedData.goal,
+                currentLevel: validatedData.currentLevel,
+                stack: validatedData.stack,
+                hoursPerWeek: validatedData.hoursPerWeek,
                 onboardingComplete: true,
             },
             { new: true }
         )
 
         if (!updatedUser) {
-            return NextResponse.json({ success: false, error: "User not found", code: 404 }, { status: 404 })
+            console.error(`Onboarding complete: User not found with ID ${session.user.id}`)
+            return NextResponse.json({ success: false, error: "User profile not found in database", code: 404 }, { status: 404 })
         }
 
+        console.log("Onboarding complete: Success!")
         return NextResponse.json({
             success: true,
             data: {
@@ -44,10 +65,17 @@ export async function POST(req: Request) {
             }
         })
     } catch (error: any) {
-        console.error("Onboarding complete error:", error)
-        if (error instanceof z.ZodError) {
-            return NextResponse.json({ success: false, error: error.issues[0].message, code: 400 }, { status: 400 })
-        }
-        return NextResponse.json({ success: false, error: "Internal server error", code: 500 }, { status: 500 })
+        console.error("Onboarding complete: CRITICAL ERROR:", error)
+
+        // Return a detailed error message for better diagnostics
+        const detailedError = error instanceof Error
+            ? `${error.name}: ${error.message}`
+            : JSON.stringify(error)
+
+        return NextResponse.json({
+            success: false,
+            error: detailedError,
+            code: 500
+        }, { status: 500 })
     }
 }

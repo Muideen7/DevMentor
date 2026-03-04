@@ -59,15 +59,15 @@ export default function Step2Page() {
         {levels.map((level) => (
           <button 
             key={level.id}
-            onClick={() => setLevel(level.id)}
+            onClick={() => setLevel(level.title)}
             className={cn(
               "flex flex-col items-start p-6 rounded-2xl text-left transition-all relative border-2",
-              currentLevel === level.id 
+              currentLevel === level.title 
                 ? "bg-coral-tint border-accent-coral ring-1 ring-accent-coral/20" 
                 : "bg-white border-slate-100 hover:border-slate-300 shadow-sm"
             )}
           >
-            {currentLevel === level.id && (
+            {currentLevel === level.title && (
               <div className="absolute top-4 right-4 bg-accent-coral text-white rounded-full p-0.5 animate-in zoom-in duration-300">
                 <span className="material-symbols-outlined text-xs">check</span>
               </div>
