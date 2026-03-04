@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DevMentor AI - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1A1A1A",
+                        "accent-coral": "#e87169",
+                        "background-light": "#F5F4F2",
+                        "background-dark": "#191919",
+                        "surface": "#FFFFFF",
+                        "text-secondary": "#6B6B6B",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    boxShadow: {
+                        "soft": "0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 10px -2px rgba(0, 0, 0, 0.03)",
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "1.5rem",
+                        "xl": "2rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Space Grotesk', sans-serif; }
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.35s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<div class="flex min-h-screen">
+<!-- Left Sidebar -->
+<aside class="w-[240px] bg-white dark:bg-zinc-900 border-r border-slate-200 dark:border-zinc-800 flex flex-col fixed h-screen overflow-y-auto z-50">
+<div class="p-6">
+<div class="flex items-center gap-3 text-primary dark:text-white mb-8">
+<div class="size-8 bg-primary dark:bg-white text-white dark:text-primary rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-xl">terminal</span>
+</div>
+<h2 class="text-lg font-bold tracking-tight">DevMentor AI</h2>
+</div>
+<div class="flex items-center gap-3 mb-8 p-2 rounded-xl border border-slate-100 dark:border-zinc-800">
+<div class="size-10 rounded-full bg-cover bg-center" data-alt="User profile portrait of Tunde" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAWvhs--QNE_f_7DYOl2gSNvE7AkxAwelTUdAmIDieE3T9w_w0Si6BVqgcKoXCU2sNoiK_QXfLpl4ePbwSFcO1qAcTgNoJc5PdrIjfeTsHlGkqdAwsAodMbkssmJrCOfzBsU6j8o-lKzM58I1myrXWCaO9XDpooOeg7mJhUAAtrt3yrq1ojo9D6DuzsForl3QarITGMWuKu06OJVAFK_VBppgXCgDY9kAhmA8ZLURRrk26jgMxjq256o-mV3u_QTeJh1BnLtCkiBYJ_")'></div>
+<div class="flex flex-col">
+<p class="text-sm font-bold">Tunde</p>
+<p class="text-xs text-slate-500">Self-Taught Dev</p>
+</div>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-2.5 rounded-full bg-accent-coral text-white font-medium bg-[#e87169]" href="#">
+<span class="material-symbols-outlined text-lg">home</span>
+<span class="text-sm">Home</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2.5 rounded-full text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">map</span>
+<span class="text-sm">My Roadmap</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2.5 rounded-full text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">code</span>
+<span class="text-sm">Code Review</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2.5 rounded-full text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">event_available</span>
+<span class="text-sm">Daily Check-in</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2.5 rounded-full text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">library_books</span>
+<span class="text-sm">Concept Library</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2.5 rounded-full text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">groups</span>
+<span class="text-sm">Community</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2.5 rounded-full text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">history</span>
+<span class="text-sm">Progress History</span>
+</a>
+</nav>
+<div class="mt-8 p-4 bg-accent-coral/10 rounded-2xl border border-accent-coral/20" style="background-color: rgba(232, 113, 105, 0.1);">
+<p class="text-xs font-bold text-accent-coral uppercase tracking-wider mb-2 text-[#e87169]">Upgrade Nudge</p>
+<p class="text-sm text-slate-700 dark:text-slate-300 mb-3">Get unlimited AI code reviews and personalized mentoring.</p>
+<button class="w-full py-2 bg-accent-coral text-white rounded-full text-xs font-bold hover:brightness-110 transition-all bg-[#e87169]">Go Pro</button>
+</div>
+</div>
+<div class="mt-auto p-6 flex flex-col gap-1 border-t border-slate-100 dark:border-zinc-800">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-lg font-light">settings</span>
+<span class="text-sm">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 dark:text-slate-400 hover:text-red-500 transition-colors" href="#">
+<span class="material-symbols-outlined text-lg font-light">logout</span>
+<span class="text-sm">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Center Content -->
+<main class="flex-1 ml-[240px] mr-[300px] p-8">
+<header class="mb-8">
+<h1 class="text-3xl font-black tracking-tight text-slate-900 dark:text-white text-[#1A1A1A]">Good morning, Tunde 👋</h1>
+<p class="text-slate-500 mt-1 text-[#6B6B6B]">Ready to master asynchronous JavaScript today?</p>
+</header>
+<!-- Today's Focus Card -->
+<section class="mb-8">
+<div class="bg-white dark:bg-zinc-900 rounded-3xl p-8 border border-slate-100 dark:border-zinc-800 flex items-center justify-between shadow-soft">
+<div class="max-w-md">
+<span class="inline-block px-3 py-1 bg-accent-coral/10 text-accent-coral text-xs font-bold rounded-full mb-4 text-[#e87169]" style="background-color: rgba(232, 113, 105, 0.1);">WEEK 3, DAY 2</span>
+<h2 class="text-2xl font-bold mb-2">Today's Focus: Async JavaScript</h2>
+<p class="text-slate-600 dark:text-slate-400 mb-6">Mastering Promises, Async/Await, and handling API errors like a pro. Your next lesson is waiting.</p>
+<button class="px-6 py-3 bg-primary dark:bg-white text-white dark:text-primary rounded-full font-bold text-sm flex items-center gap-2 hover:scale-[1.02] transition-transform">
+                            Continue Learning <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="relative flex items-center justify-center">
+<svg class="size-32">
+<circle class="text-slate-100 dark:text-zinc-800" cx="64" cy="64" fill="transparent" r="50" stroke="currentColor" stroke-width="12"></circle>
+<circle class="text-accent-coral progress-ring__circle" cx="64" cy="64" fill="transparent" r="50" stroke="currentColor" stroke-dasharray="314.159" stroke-dashoffset="125.66" stroke-linecap="round" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-2xl font-black">60%</span>
+<span class="text-[10px] text-slate-400 font-bold uppercase">Complete</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Summary Stats Grid -->
+<section class="grid grid-cols-2 gap-4 mb-8">
+<div class="bg-white dark:bg-zinc-900 p-6 rounded-2xl border border-slate-100 dark:border-zinc-800 shadow-soft">
+<p class="text-slate-500 text-sm font-medium mb-1">My Roadmap</p>
+<div class="flex items-end gap-2">
+<span class="text-3xl font-black">12%</span>
+<span class="text-green-500 text-xs font-bold mb-1.5 flex items-center"><span class="material-symbols-outlined text-xs">trending_up</span> +2%</span>
+</div>
+<div class="w-full bg-slate-100 dark:bg-zinc-800 h-1.5 rounded-full mt-4">
+<div class="bg-accent-coral h-1.5 rounded-full w-[12%]"></div>
+</div>
+</div>
+<div class="bg-white dark:bg-zinc-900 p-6 rounded-2xl border border-slate-100 dark:border-zinc-800 shadow-soft">
+<p class="text-slate-500 text-sm font-medium mb-1">Current Streak</p>
+<div class="flex items-end gap-2">
+<span class="text-3xl font-black">7 Days</span>
+<span class="material-symbols-outlined text-accent-coral mb-1">local_fire_department</span>
+</div>
+<p class="text-xs text-slate-400 mt-4 font-medium">Keep it up! 3 more days for a badge.</p>
+</div>
+<div class="bg-white dark:bg-zinc-900 p-6 rounded-2xl border border-slate-100 dark:border-zinc-800 shadow-soft">
+<p class="text-slate-500 text-sm font-medium mb-1">Code Reviews</p>
+<div class="flex items-end gap-2">
+<span class="text-3xl font-black">3 Done</span>
+<span class="text-slate-400 text-xs font-bold mb-1.5">This week</span>
+</div>
+<div class="flex gap-1 mt-4">
+<div class="h-2 flex-1 rounded-full bg-accent-coral"></div>
+<div class="h-2 flex-1 rounded-full bg-accent-coral"></div>
+<div class="h-2 flex-1 rounded-full bg-accent-coral"></div>
+<div class="h-2 flex-1 rounded-full bg-slate-100 dark:bg-zinc-800"></div>
+<div class="h-2 flex-1 rounded-full bg-slate-100 dark:bg-zinc-800"></div>
+</div>
+</div>
+<div class="bg-white dark:bg-zinc-900 p-6 rounded-2xl border border-slate-100 dark:border-zinc-800 shadow-soft">
+<p class="text-slate-500 text-sm font-medium mb-1">AI Messages</p>
+<div class="flex items-end gap-2">
+<span class="text-3xl font-black">47/100</span>
+<span class="text-slate-400 text-xs font-bold mb-1.5 uppercase">Free Tier</span>
+</div>
+<div class="w-full bg-slate-100 dark:bg-zinc-800 h-1.5 rounded-full mt-4 overflow-hidden">
+<div class="bg-primary dark:bg-white h-1.5 rounded-full w-[47%]"></div>
+</div>
+</div>
+</section>
+<!-- Recent AI Conversations -->
+<section>
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-xl font-bold">Recent AI Conversations</h3>
+<button class="text-xs font-bold text-accent-coral hover:underline rounded-full">View All</button>
+</div>
+<div class="bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-slate-100 dark:border-zinc-800 shadow-soft">
+<div class="p-4 flex items-center gap-4 hover:bg-slate-50 dark:hover:bg-zinc-800 transition-colors cursor-pointer border-b border-slate-100 dark:border-zinc-800">
+<div class="size-10 rounded-xl bg-slate-100 dark:bg-zinc-800 flex items-center justify-center text-primary dark:text-white">
+<span class="material-symbols-outlined">psychology</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold">Explained Promises</p>
+<p class="text-xs text-slate-500">How to use .then() vs async/await</p>
+</div>
+<span class="text-[10px] text-slate-400 font-medium">2h ago</span>
+</div>
+<div class="p-4 flex items-center gap-4 hover:bg-slate-50 dark:hover:bg-zinc-800 transition-colors cursor-pointer border-b border-slate-100 dark:border-zinc-800">
+<div class="size-10 rounded-xl bg-slate-100 dark:bg-zinc-800 flex items-center justify-center text-primary dark:text-white">
+<span class="material-symbols-outlined">terminal</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold">Code Review: fetchUserData</p>
+<p class="text-xs text-slate-500">Optimizing API call efficiency</p>
+</div>
+<span class="text-[10px] text-slate-400 font-medium">Yesterday</span>
+</div>
+<div class="p-4 flex items-center gap-4 hover:bg-slate-50 dark:hover:bg-zinc-800 transition-colors cursor-pointer">
+<div class="size-10 rounded-xl bg-slate-100 dark:bg-zinc-800 flex items-center justify-center text-primary dark:text-white">
+<span class="material-symbols-outlined">hub</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold">Concept: Event Loop</p>
+<p class="text-xs text-slate-500">Visualization of stack and queue</p>
+</div>
+<span class="text-[10px] text-slate-400 font-medium">3 days ago</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Right Panel -->
+<aside class="w-[300px] bg-white dark:bg-zinc-900 border-l border-slate-200 dark:border-zinc-800 fixed right-0 h-screen overflow-y-auto p-6 z-40">
+<!-- Mentor Card -->
+<div class="mb-8">
+<div class="bg-background-light dark:bg-zinc-800 rounded-2xl p-6 border border-slate-100 dark:border-zinc-700 shadow-soft">
+<div class="flex items-center gap-3 mb-4">
+<div class="size-10 rounded-full bg-primary flex items-center justify-center text-white ring-4 ring-white dark:ring-zinc-800">
+<span class="material-symbols-outlined">smart_toy</span>
+</div>
+<div>
+<p class="text-sm font-bold">Your Mentor</p>
+<span class="text-[10px] text-green-500 font-bold flex items-center gap-1">
+<span class="size-1.5 rounded-full bg-green-500 animate-pulse"></span> Online
+                            </span>
+</div>
+</div>
+<p class="text-sm text-slate-600 dark:text-slate-300 italic mb-4">"Hey Tunde! You're making great progress with JavaScript. Want to try a quick coding challenge to test your Async knowledge?"</p>
+<button class="w-full py-2.5 bg-accent-coral text-white rounded-full text-xs font-bold shadow-lg shadow-accent-coral/20 hover:translate-y-[-2px] transition-all bg-[#e87169]">Start Challenge</button>
+</div>
+</div>
+<!-- Up Next Roadmap -->
+<div class="mb-8">
+<h4 class="text-sm font-black uppercase tracking-wider text-slate-400 mb-4">Up Next</h4>
+<div class="flex flex-col gap-4">
+<div class="flex items-start gap-3">
+<div class="size-2 mt-1.5 rounded-full bg-slate-300 shrink-0"></div>
+<div>
+<p class="text-sm font-bold leading-tight">Error Handling in API</p>
+<p class="text-xs text-slate-500">Module 3.3 • 15 mins</p>
+</div>
+</div>
+<div class="flex items-start gap-3 opacity-50">
+<div class="size-2 mt-1.5 rounded-full bg-slate-300 shrink-0"></div>
+<div>
+<p class="text-sm font-bold leading-tight">Introduction to Node.js</p>
+<p class="text-xs text-slate-500">Module 4.1 • 45 mins</p>
+</div>
+</div>
+<div class="flex items-start gap-3 opacity-50">
+<div class="size-2 mt-1.5 rounded-full bg-slate-300 shrink-0"></div>
+<div>
+<p class="text-sm font-bold leading-tight">Building a Simple Server</p>
+<p class="text-xs text-slate-500">Module 4.2 • 60 mins</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Community Wins -->
+<div>
+<h4 class="text-sm font-black uppercase tracking-wider text-slate-400 mb-4">Community Wins</h4>
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-cover bg-center" data-alt="Avatar of Sarah J" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAOlNFdP8vwh8JOdjXmDGKpB1oaGnEzWb4WCMIW7am7Sp14zZKWL4NT6hCL8B6suj5f5EzGprpnKhoa9NLrLwoV1cdU9McwLrW3Ac1VO3wNTsxAoJXjcljZy8z_st3MMaBUtRc7ttacQGFo4gTOp_7qJllIlrGQESb41MQOg7Ut8hYKqUF2wYd474Qz6WDHySuEH-FLkQcw_Tm7MD26TW81zSn-47RV-aZAj6wTMMmPYusiyEuxpTWBA7DPGsn8P66fKFLwpG-J2ipl")'></div>
+<div class="flex-1">
+<p class="text-xs font-bold leading-none">Sarah J. <span class="text-slate-400 font-normal">earned</span></p>
+<p class="text-[11px] font-bold text-accent-coral text-[#e87169]">JS Master Badge</p>
+</div>
+<span class="text-[10px] text-slate-400">1m</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-cover bg-center" data-alt="Avatar of Mike R" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC_uEqYcxMHjKk3e11HKkE5wQyMSqn_mndt3bsvwclUplGdMuCXDZ5WsB92sF_37Xoxgv2oUNoNodIow6GetkaX3Ys5a3UL8KQGwxHnOmUZ312QEjdLsVMkKf1Ft85ZhZGRu_a-ruZKdr9DNGzjfDSb5R5BYvVXvMDfWZKdVdtRGPcizvFQeDa0ViQUxThDQhvo4uYieI2vHEHz7Chh3mnZ7GP3jhbxZGPwQRafW9-FOawi_Ja9lsMLhTzbh5cDqGApdbdl_vZC1LI5")'></div>
+<div class="flex-1">
+<p class="text-xs font-bold leading-none">Mike R. <span class="text-slate-400 font-normal">reached</span></p>
+<p class="text-[11px] font-bold text-accent-coral text-[#e87169]">30-Day Streak</p>
+</div>
+<span class="text-[10px] text-slate-400">5m</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-cover bg-center" data-alt="Avatar of Leo K" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCkRTGAMk6zbxeNgPQDFVU6s_XeiIZNz8FaDHshUXDkpuT1Rtz48Q7gkyVx2AKUoNk6l5j7I28tcACGrJdNqEY5NIbc4iHSd0QuZBMXyPyUIZH3kmdjNzdmQcu3bT_ac4M9kLKyLPRYbTJvwNFow4okliG5TlfJCv895vLVYnjKpwIr_-vWCwFYOpRCKqGuVD0405AxBknRgvEoPRgAThsehctsJT6QoWb-MFrEfagY3HS7XimQaBrpTCSlkK8Fa_xPflsCdiVayrGV")'></div>
+<div class="flex-1">
+<p class="text-xs font-bold leading-none">Leo K. <span class="text-slate-400 font-normal">completed</span></p>
+<p class="text-[11px] font-bold text-accent-coral text-[#e87169]">React Fundamentals</p>
+</div>
+<span class="text-[10px] text-slate-400">12m</span>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</body></html>

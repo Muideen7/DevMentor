@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Community Feed - DevMentor AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1a1a1a",
+                        "accent": "#E8736A",
+                        "background-light": "#F5F4F2",
+                        "background-dark": "#191919",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }</script>
+<style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 bg-[#F5F4F2]">
+<div class="flex min-h-screen">
+<!-- Sidebar Navigation -->
+<aside class="fixed left-0 top-0 h-screen w-64 bg-white border-r border-slate-200 p-6 flex flex-col justify-between">
+<div class="flex flex-col gap-8">
+<!-- Branding -->
+<div class="flex items-center gap-3">
+<div class="size-10 bg-accent rounded-full flex items-center justify-center text-white" style="background-color: #E8736A;">
+<span class="material-symbols-outlined">code</span>
+</div>
+<div>
+<h1 class="font-bold text-lg leading-tight">DevMentor AI</h1>
+<p class="text-xs text-slate-500 font-medium">PRO PLAN</p>
+</div>
+</div>
+<!-- Nav Items -->
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-full hover:bg-slate-100 transition-colors" href="#">
+<span class="material-symbols-outlined text-slate-600">dashboard</span>
+<span class="font-medium text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full hover:bg-slate-100 transition-colors" href="#">
+<span class="material-symbols-outlined text-slate-600">school</span>
+<span class="font-medium text-sm">Mentors</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full bg-accent text-white shadow-lg shadow-accent/20" href="#" style="background-color: #E8736A;">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-medium text-sm">Community</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full hover:bg-slate-100 transition-colors" href="#">
+<span class="material-symbols-outlined text-slate-600">book</span>
+<span class="font-medium text-sm">Resources</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full hover:bg-slate-100 transition-colors" href="#">
+<span class="material-symbols-outlined text-slate-600">settings</span>
+<span class="font-medium text-sm">Settings</span>
+</a>
+</nav>
+</div>
+<!-- Profile Widget -->
+<div class="bg-slate-50 rounded-2xl p-4 mt-auto">
+<div class="flex items-center gap-3 mb-4">
+<div class="size-10 rounded-full bg-cover bg-center" data-alt="User profile avatar with professional look" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCe87EgZIIGFss0c4KgsoT0PbwpIMl1qfvogMtcYRjAxvWDjnlUUOHTiX4X38seSGvBIpKThsB1ZisdedVyfq7_K1fNZd3QupOu1tcOUmhkJKCt8pVDHsQCOlEsyT--YJv66gn9ptX8MFyIl7WSmq1fNPWKkU22stRSeDuz6U0aXHnjYSWXD4TuNr66SIDvmIz2OMQrzXWaIXEyt6pXoNawvRUCD9UIP-imbSV43mCeXhxSfQ_agbUAsiUFoeA9Q7XdF9pbAmpTyGfX')"></div>
+<div class="overflow-hidden">
+<p class="font-bold text-sm truncate">Alex Rivera</p>
+<p class="text-xs text-slate-500 truncate">Junior Developer</p>
+</div>
+</div>
+<button class="w-full bg-primary text-white py-2 rounded-full text-xs font-bold hover:opacity-90 transition-opacity">
+                    UPGRADE NOW
+                </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 flex-1 flex">
+<!-- Feed Section -->
+<div class="flex-1 max-w-2xl mx-auto py-8 px-6">
+<!-- Header -->
+<header class="mb-8">
+<h2 class="text-3xl font-bold tracking-tight">Community Feed</h2>
+<p class="text-slate-500">Connect, learn, and grow with 12k developers.</p>
+</header>
+<!-- Composer Card -->
+<div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 mb-8">
+<div class="flex gap-4">
+<div class="size-12 rounded-full bg-cover bg-center shrink-0" data-alt="Alex Rivera user profile avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDXqSiOJhoimfqYPyZuuZuN2Is-jH7VBsueuBMxNPFzyBfJ629p_MqzgUqkXO0kA2K70l5-CNJHs-XfwtnDfFjwGNxKONDe7BgvuczRMZwqCh_CjQonj8O54EAMlezsyoUaXatl5qcge6eYORDH4SJOh-7OGvYxgHUVuoDtPu0iQ4rU16BCxcgWVYwThvX3Jz37khXrA0RdNjJilzopUg2jtud0DVko3ezAjSECpVlzjRmzTL2H_AynyuXmxqE_LvAgJCLXK8jW5out')"></div>
+<div class="flex-1">
+<textarea class="w-full border-none focus:ring-0 text-lg placeholder:text-slate-400 p-0 resize-none no-scrollbar h-12" placeholder="Share a win or ask a question..."></textarea>
+<div class="flex items-center justify-between mt-4 pt-4 border-t border-slate-50">
+<div class="flex items-center gap-2">
+<button class="p-2 hover:bg-slate-50 rounded-full text-slate-500 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">image</span>
+</button>
+<button class="p-2 hover:bg-slate-50 rounded-full text-slate-500 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">link</span>
+</button>
+<button class="p-2 hover:bg-slate-50 rounded-full text-slate-500 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">tag</span>
+</button>
+</div>
+<button class="bg-accent text-white px-6 py-2 rounded-full font-bold text-sm hover:opacity-90 transition-opacity shadow-md shadow-accent/20" style="background-color: #E8736A;">
+                                    Post Win
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Posts -->
+<div class="space-y-6">
+<!-- Post 1 -->
+<div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 transition-transform hover:scale-[1.01]">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="size-11 rounded-full bg-cover bg-center" data-alt="Sarah Jenkins profile avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAZuBYL5al9iHo_LitgUEWE4hME3PFea1heU7KAvAQXH6a_6sKEQQWlPx3HFrU5y_lILgY0-McmQHxtNqnZ3SO2zqYlU2s81PtME8_SOmDecoWqt_Wf3qNPynK_V-xE5aUTW6ykqmVmQt21dPoiGVj88n1ZbEuxorkYUNqjafECH3NKUNiNHocKkMb-SqhiD0H8dywv7IyUQ5nMrrPVq_MqQPIBdFXucjaZnKOTDzzPl1ReWut-T0OncbNuBTFhZBSGgJQ2Sq6FiSqx')"></div>
+<div>
+<h4 class="font-bold text-sm">Sarah Jenkins</h4>
+<p class="text-xs text-slate-500">Senior Frontend Engineer • 2h ago</p>
+</div>
+</div>
+<button class="text-slate-400 hover:text-slate-600">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+<div class="space-y-4">
+<p class="text-slate-700 leading-relaxed">
+                                Just finished the Advanced React Patterns course! The mentor feedback was game-changing. Highly recommend to everyone here. 🚀
+                            </p>
+<div class="h-64 rounded-xl bg-cover bg-center border border-slate-100" data-alt="Abstract coding patterns visualization" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCRerGER5eBpATVkyDxW68nk85HcyPCzaal8DWJVyrLVQY9mdHhL28Rw8lYTm94A0SwrSAIpuO8STwuxeq2pFJD2nRqi9bN5P9NOd6pRED4tCd6pRqtRspSnDWGbMUaszYNoY6JxKRA93K_BbugA201IqskaHyWuo2fvhK0Hu_HV9I9XWwB04l1Ylr0RTVaGlX9u8k4-XeiP3LEqEdT0fesam6KO05Mw0E4BpMyrmSVRh1gq0BcxKFgcQjAzciQrKCGBo7zOPVK2qdU')"></div>
+<div class="flex items-center gap-6 pt-2">
+<button class="flex items-center gap-1.5 text-slate-500 hover:text-accent group">
+<span class="material-symbols-outlined text-[20px] group-hover:fill-accent">favorite</span>
+<span class="text-xs font-bold">124</span>
+</button>
+<button class="flex items-center gap-1.5 text-slate-500 hover:text-primary">
+<span class="material-symbols-outlined text-[20px]">chat_bubble</span>
+<span class="text-xs font-bold">18</span>
+</button>
+<button class="flex items-center gap-1.5 text-slate-500 hover:text-primary ml-auto">
+<span class="material-symbols-outlined text-[20px]">bookmark</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Post 2 -->
+<div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 transition-transform hover:scale-[1.01]">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="size-11 rounded-full bg-cover bg-center" data-alt="Marcus Wong profile avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD0YuhQMUgDRIVme67kGVzOG-prelYzu8L68jTA113IJVoZDgvk26NbxoBziSrG9-mJFEWjibYt3j1Q-480_WGVnl4F3z_tl3VoKQiqRsRXkPvhukLkJuggFPDMvbcY09D8oPLrQxq3IUGqpYxlIVjf_-GXYM5XTjsiTrRnSwEYv6KfGQz--m_wCQaht7yzFv7f4YDwqCC8GGgCty5n4rr-bnShS5Be3C7tohWAq6_GPzI1F7DGeupRUXQYd5JKMT0gO_h02kzsHXeA')"></div>
+<div>
+<h4 class="font-bold text-sm">Marcus Wong</h4>
+<p class="text-xs text-slate-500">Fullstack Dev • 5h ago</p>
+</div>
+</div>
+<button class="text-slate-400 hover:text-slate-600">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+<div class="space-y-4">
+<p class="text-slate-700 leading-relaxed">
+                                Anyone else using the new Next.js partial pre-rendering? Seeing some incredible TTI improvements on my side project. Let's talk about it! 
+                            </p>
+<div class="flex items-center gap-6 pt-2">
+<button class="flex items-center gap-1.5 text-slate-500 hover:text-accent group">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+<span class="text-xs font-bold">89</span>
+</button>
+<button class="flex items-center gap-1.5 text-slate-500 hover:text-primary">
+<span class="material-symbols-outlined text-[20px]">chat_bubble</span>
+<span class="text-xs font-bold">42</span>
+</button>
+<button class="flex items-center gap-1.5 text-slate-500 hover:text-primary ml-auto">
+<span class="material-symbols-outlined text-[20px]">bookmark</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Sidebar Panel -->
+<aside class="w-80 border-l border-slate-200 p-8 h-screen sticky top-0 backdrop-blur-sm overflow-y-auto no-scrollbar bg-[#F5F4F2]/50">
+<!-- Search -->
+<div class="relative mb-8">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">search</span>
+<input class="w-full bg-white border border-slate-200 rounded-full py-2.5 pl-12 pr-4 text-sm focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none" placeholder="Search community" type="text"/>
+</div>
+<!-- Leaderboard -->
+<section class="mb-10">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-bold text-sm uppercase tracking-wider text-slate-500">Top Learners</h3>
+<span class="text-[10px] text-accent px-2 py-0.5 rounded-full font-bold">THIS WEEK</span>
+</div>
+<div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 space-y-4">
+<div class="flex items-center gap-3">
+<span class="text-sm font-bold text-slate-400 w-4 text-center">1</span>
+<div class="size-8 rounded-full bg-cover bg-center" data-alt="Top learner 1 avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBijYcKp2Bsgv2raCeWIurRNCi3setPiu_GpLWW6ssRRyvOswiepA-9xjZkV-Fc_sQ4UjZWmsKtiuOYFlzuri_P9aiLsSgVRGS_o9KJkYsPdbCz0-vkI_0CEJbSz5wp75zTA744oJsTw5Kjr7S3nGDYsKnp2NRmiavKTq5-zDQ8aCIaoHM_LMrWfNSIpI-jXCpRfIWaaFaV37nzq6LTnM2_Ce0fP8D0dZeE5OIa5Dl4N5hBRDjGwBkB07fJyYNdc7ii2ya-m95Ves6v')"></div>
+<div class="flex-1 overflow-hidden">
+<p class="text-xs font-bold truncate">Elena Gilber</p>
+<p class="text-[10px] text-slate-400">2,450 XP</p>
+</div>
+<span class="material-symbols-outlined text-yellow-500 text-[18px]">verified</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-sm font-bold text-slate-400 w-4 text-center">2</span>
+<div class="size-8 rounded-full bg-cover bg-center" data-alt="Top learner 2 avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuArQb8MtF2bHU1zdplYkNs3Xcv528FbqnrhjNssJ1RGonxyzo_FACqmkHDp0O3gDq1k7g6SOawu0HTXZyAi0g-lvqh0VWD-2TO4W56W5OBvu_M8WH45rEWJrfyyo45cb04ZXv7-95ZE4Jrbnh48NPLP5BgP9MM5B_leqnaNaED07etRhCyjHuZpG44WbNF3uI-tB71lKZCNJHECSogCzih3w-NyfpEEfbT7QofILg11H2lSVmnM_6FSoL5qDoge5AtGHFEvX00ouoMI')"></div>
+<div class="flex-1 overflow-hidden">
+<p class="text-xs font-bold truncate">Tom Preston</p>
+<p class="text-[10px] text-slate-400">2,120 XP</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-sm font-bold text-slate-400 w-4 text-center">3</span>
+<div class="size-8 rounded-full bg-cover bg-center" data-alt="Top learner 3 avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDi5G3bBUmxnP_rYTk2X8LuwYX8glx6ULm6N6uZumO7_dGXVzYNCpVIfQHvQLy1VjFcP-SXhiE5v26KrDJ1L3ntEBbhnciTdHFuV5jcKBlR6TE5zHPr--csiHMmYq4UP6KCttp_REO_j5zcllCeOM6fM3jwNqz_ug2TJUVijPzh6R8H5psOTvgIWtb2OC2xt1EIbRNOxfyfuKdRCVnrpqhJCcVYcYKfys0_Ll9EjmwGoEE2VhbM4kSazkZF_jaj50AapxLbAFcq_NLM')"></div>
+<div class="flex-1 overflow-hidden">
+<p class="text-xs font-bold truncate">Aria Song</p>
+<p class="text-[10px] text-slate-400">1,980 XP</p>
+</div>
+</div>
+<button class="w-full text-center text-xs font-bold text-accent pt-2 border-t border-slate-50 hover:underline">View Full Ranking</button>
+</div>
+</section>
+<!-- Suggested Connections -->
+<section>
+<h3 class="font-bold text-sm uppercase tracking-wider text-slate-500 mb-4">Suggested Connections</h3>
+<div class="space-y-4">
+<div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-cover bg-center" data-alt="Suggested connection 1 avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBbnl3rdq0RkdmVh5TwkoClsAiKa8U2w2MX7OOc7eDYa39EyTe-8NBAm9s3xlDh_9TqlbFWTcGw0DIXu7kN8ZV0uVDojMLMK-BUVygge2aNsqEsgV_XX2gt7kjLE3nPRCxVoftzqhAhMUJjLJvapeBQrcCJPfQAHPWAAhSFPVRBNiusgC7Prm6Kuyaw3g6Np-m9eVyZTLtbIl_amPkDyM4e2xwFt3qXhn9WMmFAZHSryGjea9W-SSc0p59BpG0_hUL9U5Y_5Ccc-MUA')"></div>
+<div class="overflow-hidden">
+<p class="text-xs font-bold truncate">David Kim</p>
+<p class="text-[10px] text-slate-400">AWS Expert</p>
+</div>
+</div>
+<button class="size-8 rounded-full bg-slate-100 hover:bg-accent hover:text-white flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]">person_add</span>
+</button>
+</div>
+<div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-cover bg-center" data-alt="Suggested connection 2 avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAlbCUHVQQJqNlojPYTQJeoksCuUPKzrNtyy9H-i9komHg6n_TCGujqubzXf-iUzyFBUpyMohffl6omFi7qMPeKM8DKCaia3HvS1nXV7YWRjAiLplGoRYqIIYqfgfJG51KFHJU7rD669RZfn_nIj8Q7_jj1lHHmGHK4Be9HsCXXR73pITEoIEyCszWssFj9MLHhL-HU1yXzgz3y-hPyMKQAS_aQyA4EKFLH8kjQW06cbF0D88Yv3GeJrluAQjBAtIFZsaGt_6QTke_5')"></div>
+<div class="overflow-hidden">
+<p class="text-xs font-bold truncate">Sophia Chen</p>
+<p class="text-[10px] text-slate-400">UI/UX Dev</p>
+</div>
+</div>
+<button class="size-8 rounded-full bg-slate-100 hover:bg-accent hover:text-white flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]">person_add</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Footer Links -->
+<div class="mt-12 flex flex-wrap gap-x-4 gap-y-2 text-[10px] text-slate-400 font-medium">
+<a class="hover:text-accent" href="#">Terms</a>
+<a class="hover:text-accent" href="#">Privacy</a>
+<a class="hover:text-accent" href="#">Guidelines</a>
+<a class="hover:text-accent" href="#">DevMentor AI © 2024</a>
+</div>
+</aside>
+</main>
+</div>
+</body></html>

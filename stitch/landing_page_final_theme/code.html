@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DevMentor AI - Your Personal AI Coding Mentor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1A1A1A",
+                        "accent-coral": "#E8736A",
+                        "background-light": "#F5F4F2",
+                        "text-main": "#1A1A1A",
+                        "text-body": "#6B6B6B",
+                    },
+                    fontFamily: {
+                        "display": ["'Space Grotesk'", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "1.5rem",
+                        "xl": "2rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #F5F4F2;
+            color: #1A1A1A;
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at center, rgba(232, 115, 106, 0.15) 0%, rgba(245, 244, 242, 1) 100%);
+        }
+        .soft-shadow {
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.04);
+        }
+    </style>
+</head>
+<body class="bg-background-light text-text-main font-display">
+<!-- Navigation -->
+<nav class="sticky top-0 z-50 bg-background-light/80 backdrop-blur-md border-b border-primary/5 px-6 py-4">
+<div class="max-w-7xl mx-auto flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-accent-coral font-bold" style="font-variation-settings: 'FILL' 1">diamond</span>
+<span class="text-xl font-bold tracking-tight">DevMentor <span class="text-accent-coral font-bold">AI</span></span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-accent-coral transition-colors" href="#">Home</a>
+<a class="text-sm font-medium hover:text-accent-coral transition-colors" href="#features">Features</a>
+<a class="text-sm font-medium hover:text-accent-coral transition-colors" href="#roadmap">Roadmap</a>
+<a class="text-sm font-medium hover:text-accent-coral transition-colors" href="#">Community</a>
+<a class="text-sm font-medium hover:text-accent-coral transition-colors" href="#pricing">Pricing</a>
+</div>
+<button class="bg-primary text-white px-6 py-2.5 rounded-full text-sm font-bold hover:opacity-90 transition-opacity">
+                Get Started Free
+            </button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="hero-gradient pt-20 pb-32 px-6">
+<div class="max-w-5xl mx-auto text-center">
+<div class="inline-flex items-center gap-2 bg-white/30 backdrop-blur-sm px-4 py-1.5 rounded-full border border-white/40 mb-8 shadow-sm">
+<span class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full border-2 border-white bg-slate-200"></div>
+<div class="w-6 h-6 rounded-full border-2 border-white bg-slate-300"></div>
+<div class="w-6 h-6 rounded-full border-2 border-white bg-slate-400"></div>
+</span>
+<span class="text-xs font-bold uppercase tracking-wider">2,400+ developers already learning</span>
+</div>
+<h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-[1.1]">
+                Your Personal AI Mentor for <br class="hidden md:block"/> Self-Taught Developers
+            </h1>
+<p class="text-lg md:text-xl text-text-main/80 max-w-2xl mx-auto mb-10 leading-relaxed">
+                No senior dev? No problem. DevMentor builds your roadmap, reviews your code, and guides you through every block — at 2am if it has to.
+            </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
+<button class="w-full sm:w-auto bg-primary text-white px-10 py-4 rounded-full text-lg font-bold hover:scale-105 transition-transform">
+                    Start Learning Free
+                </button>
+<button class="w-full sm:w-auto bg-white/20 backdrop-blur-md border border-white/30 px-10 py-4 rounded-full text-lg font-bold flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">play_circle</span> Watch how it works
+                </button>
+</div>
+<!-- Centerpiece Chat UI -->
+<div class="relative max-w-4xl mx-auto">
+<div class="bg-white rounded-xl lg:rounded-xl p-6 shadow-2xl text-left border border-white soft-shadow">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 rounded-full bg-accent-coral flex items-center justify-center">
+<span class="material-symbols-outlined text-white">smart_toy</span>
+</div>
+<div>
+<p class="text-sm font-bold">DevMentor AI</p>
+<p class="text-xs text-text-body">Online &amp; ready to help</p>
+</div>
+</div>
+<div class="space-y-4 mb-8">
+<div class="bg-background-light p-4 rounded-lg inline-block max-w-[80%]">
+<p class="text-sm font-medium">Hey! What are you stuck on today? I can help you debug, explain a concept, or plan your next project.</p>
+</div>
+</div>
+<div class="relative">
+<input class="w-full bg-background-light border-none rounded-full px-6 py-4 focus:ring-2 focus:ring-accent-coral outline-none text-sm" placeholder="I'm struggling with CSS Grid layouts..." type="text"/>
+<button class="absolute right-2 top-2 bg-primary text-white p-2 rounded-full">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Floating Cards -->
+<div class="absolute -top-10 -right-6 md:-right-12 bg-white p-4 rounded-lg shadow-xl border border-white/50 flex items-center gap-3 animate-bounce-slow">
+<div class="bg-blue-100 p-2 rounded-lg">
+<span class="material-symbols-outlined text-blue-600">map</span>
+</div>
+<span class="text-xs font-bold">Generate My Roadmap</span>
+</div>
+<div class="absolute top-1/2 -left-6 md:-left-20 bg-white p-4 rounded-lg shadow-xl border border-white/50 flex items-center gap-3">
+<div class="bg-emerald-100 p-2 rounded-lg">
+<span class="material-symbols-outlined text-emerald-600">code</span>
+</div>
+<span class="text-xs font-bold">Review My Code</span>
+</div>
+<div class="absolute -bottom-6 right-10 bg-white p-4 rounded-lg shadow-xl border border-white/50 flex items-center gap-3">
+<div class="bg-amber-100 p-2 rounded-lg">
+<span class="material-symbols-outlined text-amber-600">lightbulb</span>
+</div>
+<span class="text-xs font-bold">Explain This Concept</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Social Proof -->
+<section class="py-12 border-y border-primary/5">
+<div class="max-w-7xl mx-auto px-6">
+<p class="text-center text-xs font-bold text-text-body uppercase tracking-[0.2em] mb-10">Trusted by learners from</p>
+<div class="grid grid-cols-2 md:grid-cols-6 gap-8 items-center opacity-40 grayscale">
+<div class="flex justify-center text-xl font-black italic">freeCodeCamp</div>
+<div class="flex justify-center text-xl font-bold">Andela</div>
+<div class="flex justify-center text-xl font-bold tracking-tighter">ALX</div>
+<div class="flex justify-center text-xl font-bold">Coursera</div>
+<div class="flex justify-center text-xl font-semibold">The Odin Project</div>
+<div class="flex justify-center text-xl font-bold">Scrimba</div>
+</div>
+</div>
+</section>
+<!-- The Problem -->
+<section class="py-24 px-6 bg-white">
+<div class="max-w-7xl mx-auto">
+<p class="text-accent-coral font-bold">The Real Problem</p>
+<h2 class="text-4xl font-bold mb-16">Self-teaching is hard for three reasons</h2>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="p-8 rounded-lg bg-background-light/50 border border-primary/5 soft-shadow hover:bg-white transition-colors group">
+<span class="material-symbols-outlined text-4xl mb-6 text-primary group-hover:text-accent-coral">list_alt</span>
+<h3 class="text-xl font-bold mb-4">No Structure</h3>
+<p class="text-text-body">Tutorial hell is real. Without a plan, you're just jumping from one random video to another without progress.</p>
+</div>
+<div class="p-8 rounded-lg bg-background-light/50 border border-primary/5 soft-shadow hover:bg-white transition-colors group">
+<span class="material-symbols-outlined text-4xl mb-6 text-primary group-hover:text-accent-coral">chat_bubble_outline</span>
+<h3 class="text-xl font-bold mb-4">No Feedback</h3>
+<p class="text-text-body">You finish a project but don't know if your code is "good" or just "working". Bad habits stick when uncorrected.</p>
+</div>
+<div class="p-8 rounded-lg bg-background-light/50 border border-primary/5 soft-shadow hover:bg-white transition-colors group">
+<span class="material-symbols-outlined text-4xl mb-6 text-primary group-hover:text-accent-coral">explore</span>
+<h3 class="text-xl font-bold mb-4">No Direction</h3>
+<p class="text-text-body">When you get stuck, it takes hours to find an answer. Many people quit because they feel lonely in the struggle.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- How it works (Solution) -->
+<section class="py-24 px-6 overflow-hidden">
+<div class="max-w-7xl mx-auto">
+<p class="text-accent-coral font-bold">How DevMentor Works</p>
+<h2 class="text-4xl font-bold mb-20">Your journey, automated.</h2>
+<div class="space-y-32">
+<!-- Step 1 -->
+<div class="flex flex-col md:flex-row items-center gap-16">
+<div class="md:w-1/2">
+<span class="inline-block w-12 h-12 bg-primary text-white rounded-full text-center leading-[48px] font-bold mb-6">1</span>
+<h3 class="text-3xl font-bold mb-6">Tell it your goal once</h3>
+<p class="text-text-body text-lg leading-relaxed">Whether it's "Get a React job" or "Build a mobile app", DevMentor analyzes the current job market and your current skills to build a customized daily curriculum.</p>
+</div>
+<div class="md:w-1/2 bg-white rounded-lg p-4 shadow-xl border border-primary/5">
+<div class="bg-background-light aspect-video rounded-lg flex items-center justify-center border border-dashed border-primary/10">
+<div class="text-center p-8">
+<span class="text-accent-coral font-bold">person_add</span>
+<p class="font-bold">Onboarding UI Mockup</p>
+<p class="text-xs text-text-body">Defining your career path...</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col md:flex-row-reverse items-center gap-16">
+<div class="md:w-1/2">
+<span class="inline-block w-12 h-12 bg-primary text-white rounded-full text-center leading-[48px] font-bold mb-6">2</span>
+<h3 class="text-3xl font-bold mb-6">Paste your code. Get a real explanation.</h3>
+<p class="text-text-body text-lg leading-relaxed">Don't just fix bugs. Understand them. Paste your snippet and DevMentor explains the "Why" behind every suggestion, acting like a pair programmer.</p>
+</div>
+<div class="md:w-1/2 bg-primary rounded-lg p-4 shadow-xl border border-white/10">
+<div class="bg-[#1e1e1e] aspect-video rounded-lg p-6 font-mono text-sm text-white/80 overflow-hidden">
+<div class="flex gap-2 mb-4">
+<div class="w-3 h-3 rounded-full bg-red-500"></div>
+<div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+<div class="w-3 h-3 rounded-full bg-green-500"></div>
+</div>
+<p class="text-blue-400">function</p> <p class="text-yellow-300 inline">calculateTotal</p>(items) {<br/>
+                              <p class="text-slate-500">// AI Review: Consider using reduce() for cleaner code</p><br/>
+                              let total = 0;<br/>
+                              items.forEach(i =&gt; total += i.price);<br/>
+                              return total;<br/>
+                            }
+                        </div>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col md:flex-row items-center gap-16">
+<div class="md:w-1/2">
+<span class="inline-block w-12 h-12 bg-primary text-white rounded-full text-center leading-[48px] font-bold mb-6">3</span>
+<h3 class="text-3xl font-bold mb-6">Check in every day. Watch yourself grow.</h3>
+<p class="text-text-body text-lg leading-relaxed">Consistency is king. DevMentor tracks your progress, remembers where you left off, and sends gentle nudges to keep you coding daily.</p>
+</div>
+<div class="md:w-1/2 bg-white rounded-lg p-6 shadow-xl border border-primary/5">
+<div class="space-y-4">
+<div class="flex items-center justify-between border-b pb-4">
+<span class="font-bold">Progress Streak</span>
+<span class="text-accent-coral font-bold">14 Days 🔥</span>
+</div>
+<div class="flex gap-2">
+<div class="w-10 h-10 rounded-full bg-accent-coral flex items-center justify-center"></div>
+<div class="h-8 w-8 bg-accent-coral/40 rounded-md"></div>
+<div class="w-10 h-10 rounded-full bg-accent-coral flex items-center justify-center"></div>
+<div class="h-8 w-8 bg-background-light border border-primary/5 rounded-md"></div>
+<div class="h-8 w-8 bg-background-light border border-primary/5 rounded-md"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Dark Grid -->
+<section class="py-24 px-6 bg-primary text-white rounded-xl mx-4" id="features">
+<div class="max-w-7xl mx-auto">
+<h2 class="text-4xl font-bold mb-16 text-center">Everything you need to go from zero to hired.</h2>
+<div class="grid md:grid-cols-3 gap-10">
+<div class="p-8 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+<span class="text-accent-coral font-bold">route</span>
+<h4 class="text-xl font-bold mb-3">Roadmap Generator</h4>
+<p class="text-white/60 text-sm">Dynamic career paths that adapt based on the skills you've already mastered.</p>
+</div>
+<div class="p-8 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+<span class="text-accent-coral font-bold">rate_review</span>
+<h4 class="text-xl font-bold mb-3">AI Code Review</h4>
+<p class="text-white/60 text-sm">Instant feedback on logic, performance, and security for every line you write.</p>
+</div>
+<div class="p-8 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+<span class="text-accent-coral font-bold">event_available</span>
+<h4 class="text-xl font-bold mb-3">Daily Check-ins</h4>
+<p class="text-white/60 text-sm">Personalized reminders and mini-challenges to keep your coding streak alive.</p>
+</div>
+<div class="p-8 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+<span class="text-accent-coral font-bold">psychology</span>
+<h4 class="text-xl font-bold mb-3">Concept Explainer</h4>
+<p class="text-white/60 text-sm">Struggling with Closures or Recursion? Get 10 different ways of explaining it.</p>
+</div>
+<div class="p-8 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+<span class="text-accent-coral font-bold">memory</span>
+<h4 class="text-xl font-bold mb-3">Progress Memory</h4>
+<p class="text-white/60 text-sm">DevMentor remembers your previous bugs and helps you avoid repeating them.</p>
+</div>
+<div class="p-8 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+<span class="text-accent-coral font-bold">groups</span>
+<h4 class="text-xl font-bold mb-3">Community Feed</h4>
+<p class="text-white/60 text-sm">Share your wins and roadmaps with 2,400+ other self-taught developers.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-24 px-6">
+<div class="max-w-7xl mx-auto">
+<h2 class="text-3xl font-bold text-center mb-16">Loved by developers worldwide</h2>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="bg-white p-8 rounded-lg soft-shadow border border-primary/5">
+<p class="text-text-body mb-8 italic">"I was stuck on freeCodeCamp for months. DevMentor gave me the structure I needed to finally build my own portfolio projects."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-accent-coral/20"></div>
+<div>
+<p class="font-bold">Tunde A.</p>
+<p class="text-xs text-text-body">Frontend Developer @ ALX</p>
+</div>
+</div>
+</div>
+<div class="bg-white p-8 rounded-lg soft-shadow border border-primary/5">
+<p class="text-text-body mb-8 italic">"The AI Code Review is basically like having a senior developer sitting next to me. I've learned more in 2 weeks than in 2 months of YouTube."</p>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-accent-coral flex items-center justify-center"></div>
+<div>
+<p class="font-bold">Priya M.</p>
+<p class="text-xs text-text-body">Self-taught Data Analyst</p>
+</div>
+</div>
+</div>
+<div class="bg-white p-8 rounded-lg soft-shadow border border-primary/5">
+<p class="text-text-body mb-8 italic">"The roadmap feature is a game changer. It cuts out all the noise and tells me exactly what I need to learn to get hired."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10"></div>
+<div>
+<p class="font-bold">Marcus L.</p>
+<p class="text-xs text-text-body">Fullstack Student</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Pricing -->
+<section class="py-24 px-6 bg-background-light" id="pricing">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-bold mb-4">Investment in your future</h2>
+<p class="text-text-body">No expensive bootcamps. Just pure learning.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8 items-end">
+<!-- Starter -->
+<div class="bg-white p-8 rounded-lg soft-shadow border border-primary/5">
+<h3 class="text-xl font-bold mb-2">Starter</h3>
+<div class="flex items-baseline gap-1 mb-6">
+<span class="text-4xl font-bold">$0</span>
+<span class="text-text-body">/month</span>
+</div>
+<ul class="space-y-4 mb-10">
+<li class="flex items-center gap-2 text-sm">
+<span class="material-symbols-outlined text-accent-coral text-lg">check_circle</span>
+                            Basic Roadmap Generator
+                        </li>
+<li class="flex items-center gap-2 text-sm">
+<span class="material-symbols-outlined text-accent-coral text-lg">check_circle</span>
+                            5 AI Code Reviews / month
+                        </li>
+<li class="flex items-center gap-2 text-sm">
+<span class="material-symbols-outlined text-accent-coral text-lg">check_circle</span>
+                            Community Feed Access
+                        </li>
+</ul>
+<button class="w-full py-4 rounded-full border-2 border-primary font-bold hover:bg-primary hover:text-white transition-colors">Join Free</button>
+</div>
+<!-- Mentor -->
+<div class="bg-white p-10 rounded-lg shadow-2xl border-4 border-accent-coral relative transform scale-105">
+<div class="w-10 h-10 rounded-full bg-accent-coral flex items-center justify-center">MOST POPULAR</div>
+<h3 class="text-xl font-bold mb-2">Mentor</h3>
+<div class="flex items-baseline gap-1 mb-6">
+<span class="text-5xl font-bold">$12</span>
+<span class="text-text-body">/month</span>
+</div>
+<ul class="space-y-4 mb-10">
+<li class="flex items-center gap-2 text-sm font-bold">
+<span class="material-symbols-outlined text-accent-coral text-lg">check_circle</span>
+                            Unlimited Roadmaps
+                        </li>
+<li class="flex items-center gap-2 text-sm font-bold">
+<span class="material-symbols-outlined text-accent-coral text-lg">check_circle</span>
+                            Unlimited AI Code Reviews
+                        </li>
+<li class="flex items-center gap-2 text-sm font-bold">
+<span class="material-symbols-outlined text-accent-coral text-lg">check_circle</span>
+                            Daily Goal Tracking
+                        </li>
+<li class="flex items-center gap-2 text-sm font-bold">
+<span class="material-symbols-outlined text-accent-coral text-lg">check_circle</span>
+                            Priority Concept Explanation
+                        </li>
+</ul>
+<button class="w-full py-4 rounded-full bg-primary text-white font-bold hover:scale-105 transition-transform">Go Pro</button>
+</div>
+<!-- Cohort -->
+<div class="bg-white p-8 rounded-lg soft-shadow border border-primary/5">
+<h3 class="text-xl font-bold mb-2">Cohort</h3>
+<div class="flex items-baseline gap-1 mb-6">
+<span class="text-4xl font-bold">$29</span>
+<span class="text-text-body">/month</span>
+</div>
+<ul class="space-y-4 mb-10">
+<li class="flex items-center gap-2 text-sm">
+<span class="material-symbols-outlined text-accent-coral text-lg">check_circle</span>
+                            Everything in Mentor
+                        </li>
+<li class="flex items-center gap-2 text-sm">
+<span class="material-symbols-outlined text-accent-coral text-lg">check_circle</span>
+                            Private Study Group
+                        </li>
+<li class="flex items-center gap-2 text-sm">
+<span class="material-symbols-outlined text-accent-coral text-lg">check_circle</span>
+                            Monthly Live Q&amp;A Sessions
+                        </li>
+</ul>
+<button class="w-full py-4 rounded-full border-2 border-primary font-bold hover:bg-primary hover:text-white transition-colors">Select Cohort</button>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ -->
+<section class="py-24 px-6 bg-white">
+<div class="max-w-3xl mx-auto">
+<h2 class="text-3xl font-bold mb-12 text-center">Frequently Asked Questions</h2>
+<div class="space-y-4">
+<details class="group p-6 rounded-lg bg-background-light border border-primary/5">
+<summary class="list-none flex justify-between items-center cursor-pointer font-bold">
+                        Is this just like ChatGPT?
+                        <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<p class="mt-4 text-text-body text-sm leading-relaxed">While we use advanced LLMs, DevMentor is specifically tuned for coding education. It includes features like persistent memory of your learning progress, career-focused roadmaps, and structured feedback that general AI lacks.</p>
+</details>
+<details class="group p-6 rounded-lg bg-background-light border border-primary/5">
+<summary class="list-none flex justify-between items-center cursor-pointer font-bold">
+                        Do I need to know how to code already?
+                        <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<p class="mt-4 text-text-body text-sm leading-relaxed">Not at all! Many of our users are absolute beginners. We build your roadmap from square one, teaching you the fundamentals like Variables and Logic first.</p>
+</details>
+<details class="group p-6 rounded-lg bg-background-light border border-primary/5">
+<summary class="list-none flex justify-between items-center cursor-pointer font-bold">
+                        Can I cancel my subscription?
+                        <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<p class="mt-4 text-text-body text-sm leading-relaxed">Yes, you can cancel at any time from your dashboard. No hidden fees or long-term contracts.</p>
+</details>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-24 px-6">
+<div class="max-w-5xl mx-auto hero-gradient rounded-xl p-16 text-center text-primary relative overflow-hidden" style="background: linear-gradient(135deg, #E8736A 0%, #F5C4A8 100%);">
+<div class="relative z-10">
+<h2 class="text-4xl md:text-5xl font-bold mb-6">Stop learning alone.</h2>
+<p class="text-lg mb-10 opacity-80">Join 2,400+ developers building their dreams today.</p>
+<button class="bg-primary text-white px-12 py-5 rounded-full text-xl font-bold hover:scale-105 transition-transform">
+                    Start Learning Free Today
+                </button>
+</div>
+<!-- Decorative circle -->
+<div class="absolute -bottom-20 -left-20 w-64 h-64 bg-white/20 rounded-full blur-3xl"></div>
+<div class="absolute -top-20 -right-20 w-64 h-64 bg-white/20 rounded-full blur-3xl"></div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="py-16 px-6 border-t border-primary/5">
+<div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12">
+<div class="col-span-2 md:col-span-1">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-accent-coral text-2xl" style="font-variation-settings: 'FILL' 1">diamond</span>
+<span class="text-lg font-bold tracking-tight">DevMentor <span class="text-accent-coral">AI</span></span>
+</div>
+<p class="text-text-body text-sm leading-relaxed">The personal AI companion for the next generation of software engineers.</p>
+</div>
+<div>
+<h5 class="font-bold mb-6 uppercase text-xs tracking-widest">Product</h5>
+<ul class="space-y-4 text-sm text-text-body">
+<li><a class="hover:text-primary" href="#">Features</a></li>
+<li><a class="hover:text-primary" href="#">Roadmaps</a></li>
+<li><a class="hover:text-primary" href="#">Pricing</a></li>
+<li><a class="hover:text-primary" href="#">Changelog</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold mb-6 uppercase text-xs tracking-widest">Resources</h5>
+<ul class="space-y-4 text-sm text-text-body">
+<li><a class="hover:text-primary" href="#">Community</a></li>
+<li><a class="hover:text-primary" href="#">Documentation</a></li>
+<li><a class="hover:text-primary" href="#">Blog</a></li>
+<li><a class="hover:text-primary" href="#">Free Courses</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold mb-6 uppercase text-xs tracking-widest">Company</h5>
+<ul class="space-y-4 text-sm text-text-body">
+<li><a class="hover:text-primary" href="#">About Us</a></li>
+<li><a class="hover:text-primary" href="#">Careers</a></li>
+<li><a class="hover:text-primary" href="#">Privacy</a></li>
+<li><a class="hover:text-primary" href="#">Terms</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-16 pt-8 border-t border-primary/5 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-xs text-text-body">© 2024 DevMentor AI. Built for self-taught devs.</p>
+<div class="flex gap-6">
+<a class="text-text-body hover:text-primary" href="#"><span class="material-symbols-outlined text-xl">language</span></a>
+<a class="text-text-body hover:text-primary" href="#"><span class="material-symbols-outlined text-xl">alternate_email</span></a>
+</div>
+</div>
+</footer>
+</body></html>

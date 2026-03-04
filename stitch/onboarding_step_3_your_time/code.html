@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ff7f6e", // Coral primary
+                        "accent": "#1a1a1a", // Dark charcoal
+                        "background-light": "#ffffff",
+                        "background-dark": "#191919",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "1.5rem", "xl": "2rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>DevMentor AI - Step 3</title>
+</head>
+<body class="bg-background-light font-display text-slate-900 overflow-x-hidden relative min-h-screen">
+<!-- Decorative Gradients -->
+<div class="fixed top-0 left-0 w-full h-full pointer-events-none -z-10 overflow-hidden">
+<div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/10 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-[120px]"></div>
+</div>
+<!-- Main Container -->
+<div class="max-w-[680px] mx-auto px-6 py-12 flex flex-col items-center">
+<!-- Floating Mini-Cards Decorative -->
+<div class="w-full flex justify-between mb-12 opacity-40">
+<div class="bg-white border border-slate-100 shadow-sm rounded p-3 flex items-center gap-2 transform -rotate-3 translate-y-4">
+<span class="material-symbols-outlined text-primary text-sm">map</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Roadmap</span>
+</div>
+<div class="bg-white border border-slate-100 shadow-sm rounded p-3 flex items-center gap-2 transform rotate-2">
+<span class="material-symbols-outlined text-primary text-sm">code</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Code Reviews</span>
+</div>
+<div class="bg-white border border-slate-100 shadow-sm rounded p-3 flex items-center gap-2 transform -rotate-2 translate-y-6">
+<span class="material-symbols-outlined text-primary text-sm">event_available</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Daily Check-ins</span>
+</div>
+</div>
+<!-- Logo -->
+<div class="mb-12">
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined font-bold">terminal</span>
+</div>
+<span class="text-xl font-bold tracking-tight">DevMentor AI</span>
+</div>
+</div>
+<!-- Progress Indicator -->
+<div class="w-full flex items-center justify-between mb-16 relative px-4">
+<div class="absolute top-4 left-[10%] right-[10%] h-[2px] bg-primary"></div>
+<!-- Step 1 -->
+<div class="relative z-10 flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white border-4 border-white">
+<span class="material-symbols-outlined text-base">check</span>
+</div>
+<span class="text-xs font-medium text-slate-400">Your Goal</span>
+</div>
+<!-- Step 2 -->
+<div class="relative z-10 flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white border-4 border-white">
+<span class="material-symbols-outlined text-base">check</span>
+</div>
+<span class="text-xs font-medium text-slate-400">Your Level</span>
+</div>
+<!-- Step 3 -->
+<div class="relative z-10 flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white border-4 border-white font-bold text-sm">
+                    3
+                </div>
+<span class="text-xs font-bold text-primary">Your Time</span>
+</div>
+</div>
+<!-- Header Content -->
+<div class="text-center mb-10">
+<h1 class="text-4xl font-bold tracking-tight mb-4">How much time can you give it?</h1>
+<p class="text-slate-500 text-lg leading-relaxed max-w-[540px] mx-auto">
+                There's no wrong answer. Your roadmap adjusts to what's realistic for your life, not what looks impressive on paper.
+            </p>
+</div>
+<!-- Availability Selector -->
+<div class="w-full space-y-4 mb-10">
+<!-- Option 1 -->
+<label class="group cursor-pointer block">
+<input class="hidden peer" name="availability" type="radio"/>
+<div class="flex items-start gap-4 p-5 border-2 border-slate-100 rounded-xl bg-white peer-checked:border-primary peer-checked:bg-primary/5 transition-all">
+<div class="w-6 h-6 rounded-full border-2 border-slate-200 mt-1 flex items-center justify-center group-hover:border-primary peer-checked:border-primary">
+<div class="w-3 h-3 rounded-full bg-primary opacity-0 peer-checked:opacity-100"></div>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-lg font-bold">5 to 10</span>
+<span class="text-sm font-medium px-2 py-0.5 bg-slate-100 rounded-full text-slate-600">Casual Pace</span>
+</div>
+<p class="text-slate-500 text-sm mt-1">Learning fits around a busy life. Progress is slow but consistent.</p>
+</div>
+</div>
+</label>
+<!-- Option 2 (Pre-selected) -->
+<label class="group cursor-pointer block">
+<input checked="" class="hidden peer" name="availability" type="radio"/>
+<div class="flex items-start gap-4 p-5 border-2 border-primary bg-primary/5 rounded-xl transition-all">
+<div class="w-6 h-6 rounded-full border-2 border-primary mt-1 flex items-center justify-center">
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-lg font-bold">10 to 20</span>
+<span class="text-sm font-medium px-2 py-0.5 bg-primary/20 rounded-full text-primary">Steady Grind</span>
+</div>
+<p class="text-slate-500 text-sm mt-1">You're serious but have other responsibilities. Solid weekly progress.</p>
+</div>
+</div>
+</label>
+<!-- Option 3 -->
+<label class="group cursor-pointer block">
+<input class="hidden peer" name="availability" type="radio"/>
+<div class="flex items-start gap-4 p-5 border-2 border-slate-100 rounded-xl bg-white peer-checked:border-primary peer-checked:bg-primary/5 transition-all">
+<div class="w-6 h-6 rounded-full border-2 border-slate-200 mt-1 flex items-center justify-center group-hover:border-primary">
+<div class="w-3 h-3 rounded-full bg-primary opacity-0 peer-checked:opacity-100"></div>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-lg font-bold">20 to 30</span>
+<span class="text-sm font-medium px-2 py-0.5 bg-slate-100 rounded-full text-slate-600">Full Focus</span>
+</div>
+<p class="text-slate-500 text-sm mt-1">You're prioritizing this. Expect meaningful milestones every few weeks.</p>
+</div>
+</div>
+</label>
+<!-- Option 4 -->
+<label class="group cursor-pointer block">
+<input class="hidden peer" name="availability" type="radio"/>
+<div class="flex items-start gap-4 p-5 border-2 border-slate-100 rounded-xl bg-white peer-checked:border-primary peer-checked:bg-primary/5 transition-all">
+<div class="w-6 h-6 rounded-full border-2 border-slate-200 mt-1 flex items-center justify-center group-hover:border-primary">
+<div class="w-3 h-3 rounded-full bg-primary opacity-0 peer-checked:opacity-100"></div>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-lg font-bold">30+</span>
+<span class="text-sm font-medium px-2 py-0.5 bg-slate-100 rounded-full text-slate-600">All In</span>
+</div>
+<p class="text-slate-500 text-sm mt-1">You're treating this like a job. Your roadmap will be accelerated accordingly.</p>
+</div>
+</div>
+</label>
+</div>
+<!-- Commitment Summary Card -->
+<div class="w-full bg-slate-50 border border-slate-100 rounded-xl p-8 mb-10">
+<h3 class="text-slate-500 text-sm font-medium mb-6 uppercase tracking-widest">Based on your selections so far...</h3>
+<ul class="space-y-4">
+<li class="flex items-center gap-3">
+<div class="w-5 h-5 bg-primary/20 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[12px] text-primary font-bold">check</span>
+</div>
+<span class="text-slate-700 font-medium">Your roadmap will be tailored for a <span class="text-slate-900 font-bold underline decoration-primary/30">career-switcher goal</span></span>
+</li>
+<li class="flex items-center gap-3">
+<div class="w-5 h-5 bg-primary/20 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[12px] text-primary font-bold">check</span>
+</div>
+<span class="text-slate-700 font-medium">Starting from the <span class="text-slate-900 font-bold underline decoration-primary/30">Basics level</span> with a JavaScript focus</span>
+</li>
+<li class="flex items-center gap-3">
+<div class="w-5 h-5 bg-primary/20 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[12px] text-primary font-bold">check</span>
+</div>
+<span class="text-slate-700 font-medium">Paced for <span class="text-slate-900 font-bold underline decoration-primary/30">10 to 20 hours per week</span> over approximately 6 months</span>
+</li>
+</ul>
+</div>
+<!-- Footer Navigation -->
+<div class="w-full flex flex-col items-center gap-4">
+<a class="text-slate-400 text-sm font-medium hover:text-primary transition-colors" href="#">← Back to Step 2</a>
+<button class="w-full bg-accent text-white py-5 rounded-full text-lg font-bold flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-accent/20">
+                Generate My Roadmap
+                <span class="material-symbols-outlined text-primary">auto_awesome</span>
+</button>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1A1A1A",
+                        "accent-coral": "#E8736A",
+                        "background-page": "#F5F4F2",
+                        "surface": "#FFFFFF",
+                        "neutral-gray": "#6B6B6B",
+                        "border-light": "#E5E7EB"
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                    boxShadow: {
+                        "soft": "0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 10px -1px rgba(0, 0, 0, 0.03)"
+                    }
+                },
+            },
+        }</script>
+</head>
+<body class="bg-background-page font-display text-primary min-h-screen">
+<div class="flex flex-col items-center px-6 py-12 max-w-[680px] mx-auto">
+<!-- Logo -->
+<div class="flex flex-col items-center gap-2 mb-12">
+<div class="w-12 h-12 rounded-2xl bg-accent-coral flex items-center justify-center text-white shadow-soft">
+<span class="material-symbols-outlined text-3xl">hub</span>
+</div>
+<h1 class="text-2xl font-bold tracking-tight text-primary">DevMentor AI</h1>
+</div>
+<!-- Progress Indicator -->
+<div class="w-full flex justify-between items-center mb-16 relative">
+<!-- Connecting Line -->
+<div class="absolute top-5 left-0 w-full h-[2px] bg-border-light -z-10"></div>
+<!-- Step 1 (Active) -->
+<div class="flex flex-col items-center gap-3 bg-background-page">
+<div class="w-10 h-10 rounded-full bg-accent-coral flex items-center justify-center text-white font-bold ring-4 ring-white">
+                    1
+                </div>
+<span class="text-sm font-bold text-accent-coral">Your Goal</span>
+</div>
+<!-- Step 2 (Inactive) -->
+<div class="flex flex-col items-center gap-3 bg-background-page">
+<div class="text-neutral-gray text-lg leading-relaxed">
+                    2
+                </div>
+<span class="text-neutral-gray text-lg leading-relaxed">Your Level</span>
+</div>
+<!-- Step 3 (Inactive) -->
+<div class="flex flex-col items-center gap-3 bg-background-page">
+<div class="text-neutral-gray text-lg leading-relaxed">
+                    3
+                </div>
+<span class="text-neutral-gray text-lg leading-relaxed">Your Time</span>
+</div>
+</div>
+<!-- Main Content Header -->
+<div class="text-center mb-8">
+<h2 class="text-4xl font-bold text-primary mb-4">What do you want to build?</h2>
+<p class="text-neutral-gray text-lg leading-relaxed">
+                Be honest. There's no wrong answer. Your roadmap will be built around this.
+            </p>
+</div>
+<!-- Input Area -->
+<div class="w-full mb-10">
+<textarea class="w-full min-h-[160px] p-6 text-lg border-2 border-border-light rounded-2xl bg-surface focus:border-accent-coral focus:ring-0 transition-colors placeholder:text-neutral-gray/50 resize-none shadow-soft" placeholder="e.g. I want to become a fullstack developer and build SaaS products. I've tried a few tutorials but never finished anything."></textarea>
+</div>
+<!-- Grid Options -->
+<div class="w-full mb-12">
+<p class="text-neutral-gray text-lg leading-relaxed">Or choose a goal to start with:</p>
+<div class="grid grid-cols-2 gap-4">
+<button class="flex flex-col items-center gap-4 p-6 bg-surface border-2 border-border-light rounded-2xl hover:border-accent-coral hover:bg-accent-coral/5 transition-all group shadow-soft">
+<span class="text-neutral-gray text-lg leading-relaxed">browser_updated</span>
+<span class="font-semibold text-primary">Build Web Apps</span>
+</button>
+<button class="flex flex-col items-center gap-4 p-6 bg-surface border-2 border-border-light rounded-2xl hover:border-accent-coral hover:bg-accent-coral/5 transition-all group shadow-soft">
+<span class="text-neutral-gray text-lg leading-relaxed">smartphone</span>
+<span class="font-semibold text-primary">Build Mobile Apps</span>
+</button>
+<button class="flex flex-col items-center gap-4 p-6 bg-surface border-2 border-border-light rounded-2xl hover:border-accent-coral hover:bg-accent-coral/5 transition-all group shadow-soft">
+<span class="text-neutral-gray text-lg leading-relaxed">smart_toy</span>
+<span class="font-semibold text-primary">Learn AI &amp; ML</span>
+</button>
+<button class="flex flex-col items-center gap-4 p-6 bg-surface border-2 border-border-light rounded-2xl hover:border-accent-coral hover:bg-accent-coral/5 transition-all group shadow-soft">
+<span class="text-neutral-gray text-lg leading-relaxed">dns</span>
+<span class="font-semibold text-primary">Become a Backend Dev</span>
+</button>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="w-full text-center">
+<button class="w-full py-5 bg-primary text-white rounded-full text-xl font-bold hover:opacity-90 transition-transform active:scale-[0.98] shadow-soft mb-4 flex items-center justify-center gap-2">
+                Continue to Step 2
+                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<p class="text-neutral-gray text-lg leading-relaxed">
+                This takes about 3 minutes. Your roadmap generates at the end.
+            </p>
+</div>
+</div>
+</body></html>

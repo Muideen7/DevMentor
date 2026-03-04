@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1a1a1a",
+                        "accent-coral": "#E8736A",
+                        "background-light": "#F5F4F2",
+                        "background-dark": "#191919",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "sans": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "1.5rem",
+                        "xl": "2rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Space Grotesk', sans-serif; }
+        .code-block { background-color: #1e1e1e; color: #d4d4d4; padding: 1.5rem; border-radius: 1rem; font-family: monospace; font-size: 0.875rem; }
+        .coral-pill { background-color: #E8736A; color: white; }
+        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(8px); }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex" style="font-family: 'Space Grotesk', sans-serif;">
+<!-- Left Sidebar (240px) -->
+<aside class="w-[240px] h-screen sticky top-0 bg-white border-r border-slate-200 flex flex-col p-6 shrink-0">
+<div class="flex items-center gap-3 mb-10 px-2">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-xl">terminal</span>
+</div>
+<h1 class="text-xl font-bold tracking-tight">DevMentor AI</h1>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-full hover:bg-slate-100 transition-colors text-slate-600" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full coral-pill transition-colors shadow-lg shadow-accent-coral/20" href="#">
+<span class="material-symbols-outlined fill-1">book_2</span>
+<span class="font-medium">Concept Library</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full hover:bg-slate-100 transition-colors text-slate-600" href="#">
+<span class="material-symbols-outlined">code_blocks</span>
+<span class="font-medium">Code Editor</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full hover:bg-slate-100 transition-colors text-slate-600" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-medium">Mentors</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full hover:bg-slate-100 transition-colors text-slate-600" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-medium">Settings</span>
+</a>
+</nav>
+<div class="mt-auto p-4 bg-slate-50 rounded-xl border border-slate-100">
+<p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Account</p>
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-slate-200 overflow-hidden">
+<img alt="User Profile" data-alt="Close up portrait of a smiling developer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxi9GiCvZ2fC7eXCpAWeaes1y5k_eXf2Lcitb_ZCVrGiiWhZ4XpDc7SW_T8bRbF_7dB78maBgPtLlbhlcObLUIje5-1ugaujfhUNX5r14gMw9_5UgufpOfkVy3UVBadMbCfJukTmOhm2RRoDx2j2y3bKgpAQMN168UktMOgOh-xJ-4bdt6O_M5MIc2Q3ONNT2Mn9MpqZ-dMm1lrNJd6JMv8CU8GZXYufSKWSumUbMZNOX29XePOpP_GMH0_17i6_4iqHSDdek6i2ns"/>
+</div>
+<div class="overflow-hidden">
+<p class="text-sm font-bold truncate">Alex Rivera</p>
+<p class="text-[10px] text-slate-500 truncate">PRO MEMBER</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Center Content -->
+<main class="flex-1 overflow-y-auto px-10 py-8">
+<!-- Header -->
+<header class="mb-8">
+<div class="flex items-center gap-2 text-sm text-slate-500 mb-4">
+<span>Concept Library</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span>JavaScript</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-accent-coral font-medium">Async/Await</span>
+</div>
+<h2 class="text-4xl font-bold mb-2">Understanding Async/Await</h2>
+<p class="text-slate-500">Estimated reading time: 12 minutes · Mastered by 1.2k developers</p>
+</header>
+<!-- Main Content Card -->
+<section class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden mb-10">
+<!-- Intro Section -->
+<div class="p-8 border-b border-slate-100">
+<h3 class="text-xl font-bold mb-4">The Introduction</h3>
+<p class="text-slate-600 leading-relaxed text-lg">
+                    In JavaScript, operations like fetching data from an API or reading a file can take time. Instead of blocking the rest of your program, JavaScript handles these "asynchronously." Async/Await is a powerful syntax that allows you to write this asynchronous code so it reads like standard, sequential instructions.
+                </p>
+</div>
+<!-- Mental Model Section -->
+<div class="p-8 bg-accent-coral/5 border-b border-slate-100">
+<h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-accent-coral">psychology</span>
+                    The Mental Model
+                </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+<div class="space-y-4">
+<p class="text-slate-600 leading-relaxed">
+                            Think of a high-end restaurant kitchen. An <span class="font-bold text-accent-coral">async</span> function is like a chef starting a pot of water to boil.
+                        </p>
+<div class="flex items-start gap-3 p-4 bg-white rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-accent-coral">timer</span>
+<p class="text-sm text-slate-600 italic">"I'm going to start this task (await), but I'm not going to stand here doing nothing. I'll prep the garnishes while the water heats up."</p>
+</div>
+</div>
+<div class="bg-white p-6 rounded-lg border-2 border-dashed border-accent-coral/20 flex flex-col items-center justify-center aspect-video">
+<div class="relative w-full h-full bg-cover bg-center rounded-lg" data-alt="Abstract illustration of a kitchen workflow with timers" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBTsaI3KC4eeKAcw8bd7CaDu9Y2IiftR7yQIkr5gHzj-V10mXe39zLtV8qDyBcsFRZiGYcYt6NW8jUtYQ3s7C--Hbqe7wubJRW9A0UuUrIhE8RG_-AsnZoYAayWgyW0DL8oDZ-ZrIonjFOdXwcRuN1n--BBAORXapHpXp-mcSAl1ljGHDpDbp9hfia74mqawTprbKpCCOwyDoCM4KQCUSL2kIkjZEzD_nrOMWDaehcOVYAWEWx6KmVRjc1B6tc65bbkgaI-QJDZUHS9')">
+<div class="absolute inset-0 bg-accent-coral/40 mix-blend-multiply rounded-lg"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-6xl opacity-80">play_circle</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Code Comparison Section -->
+<div class="p-8 border-b border-slate-100">
+<h3 class="text-xl font-bold mb-6">Code Comparison</h3>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<div class="space-y-3">
+<p class="text-sm font-bold text-slate-500 uppercase tracking-wider">The Old Way (Promises)</p>
+<div class="code-block">
+<pre><code>fetchData()
+  .then(response =&gt; {
+    return response.json();
+  })
+  .then(data =&gt; {
+    console.log(data);
+  })
+  .catch(err =&gt; {
+    console.error(err);
+  });</code></pre>
+</div>
+</div>
+<div class="space-y-3">
+<p class="text-sm font-bold text-accent-coral uppercase tracking-wider">The Async/Await Way</p>
+<div class="code-block border-t-4 border-accent-coral">
+<pre><code>async function getData() {
+  try {
+    const res = await fetchData();
+    const data = await res.json();
+    console.log(data);
+  } catch (err) {
+    console.error(err);
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<!-- Common Pitfalls -->
+<div class="p-8">
+<h3 class="text-xl font-bold mb-6">Common Pitfalls</h3>
+<div class="space-y-4">
+<div class="flex items-center gap-4 p-4 rounded-xl border border-slate-100 bg-slate-50 hover:bg-white hover:shadow-md transition-all">
+<div class="size-10 rounded-full bg-accent-coral/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-accent-coral">warning</span>
+</div>
+<div>
+<p class="font-bold">Forgetting the 'await' keyword</p>
+<p class="text-sm text-slate-500">The function will return a Promise object instead of the resolved data.</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-xl border border-slate-100 bg-slate-50 hover:bg-white hover:shadow-md transition-all">
+<div class="size-10 rounded-full bg-accent-coral/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-accent-coral">warning</span>
+</div>
+<div>
+<p class="font-bold">Using 'await' in a non-async function</p>
+<p class="text-sm text-slate-500">This will throw a SyntaxError. Await can only be used inside async contexts.</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-xl border border-slate-100 bg-slate-50 hover:bg-white hover:shadow-md transition-all">
+<div class="size-10 rounded-full bg-accent-coral/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-accent-coral">warning</span>
+</div>
+<div>
+<p class="font-bold">Sequential execution instead of Parallel</p>
+<p class="text-sm text-slate-500">Awaiting independent requests one-by-one can slow down your app significantly.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Quiz Section -->
+<section class="bg-white rounded-xl shadow-lg border-2 border-accent-coral/30 p-8 mb-12">
+<h3 class="text-2xl font-bold mb-2">Test Your Knowledge</h3>
+<p class="text-slate-500 mb-8">Quick check: Do you really understand the 'await' mechanism?</p>
+<div class="space-y-6">
+<p class="text-lg font-medium">What happens when the JavaScript engine encounters an 'await' keyword?</p>
+<div class="space-y-3">
+<label class="flex items-center gap-4 p-4 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50 transition-colors">
+<input class="text-accent-coral focus:ring-accent-coral size-5" name="quiz" type="radio"/>
+<span class="text-slate-700">It stops the entire browser thread until the promise resolves.</span>
+</label>
+<label class="flex items-center gap-4 p-4 rounded-xl border-2 border-accent-coral bg-accent-coral/5 cursor-pointer">
+<input checked="" class="text-accent-coral focus:ring-accent-coral size-5" name="quiz" type="radio"/>
+<span class="text-slate-700 font-medium">It pauses the execution of THAT function while the engine works on other tasks.</span>
+</label>
+<label class="flex items-center gap-4 p-4 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50 transition-colors">
+<input class="text-accent-coral focus:ring-accent-coral size-5" name="quiz" type="radio"/>
+<span class="text-slate-700">It converts the asynchronous code into synchronous code permanently.</span>
+</label>
+</div>
+<button class="px-8 py-4 bg-primary text-white font-bold rounded-full hover:bg-slate-800 transition-all shadow-lg">Check Answer</button>
+</div>
+</section>
+</main>
+<!-- Right Contextual Panel -->
+<aside class="w-[300px] h-screen sticky top-0 bg-slate-50 border-l border-slate-200 p-6 flex flex-col gap-8 shrink-0">
+<!-- Mastery Progress -->
+<section>
+<h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Mastery Progress</h4>
+<div class="bg-white p-6 rounded-xl border border-slate-200 flex flex-col items-center">
+<div class="relative size-32 mb-4">
+<!-- Simple SVG Progress Ring -->
+<svg class="size-full" viewbox="0 0 36 36">
+<path class="text-slate-100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="100, 100" stroke-width="3"></path>
+<path class="text-accent-coral" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="40, 100" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-2xl font-bold">40%</span>
+<span class="text-[10px] text-slate-400 uppercase font-bold">Level 1</span>
+</div>
+</div>
+<p class="text-sm text-center text-slate-600">Finish the quiz and 2 code labs to reach 100% mastery.</p>
+</div>
+</section>
+<!-- Mentor Tip -->
+<section>
+<h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Mentor Tip</h4>
+<div class="bg-primary text-white p-6 rounded-xl relative overflow-hidden">
+<div class="absolute -right-4 -top-4 opacity-10">
+<span class="material-symbols-outlined text-8xl">lightbulb</span>
+</div>
+<div class="flex items-center gap-3 mb-4">
+<div class="size-8 rounded-full bg-slate-700 flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">robot_2</span>
+</div>
+<span class="text-xs font-bold uppercase tracking-widest">AI Mentor</span>
+</div>
+<p class="text-sm leading-relaxed italic">
+                    "Think of 'await' as a pause button for your code. It doesn't stop the whole world, just this specific function."
+                </p>
+</div>
+</section>
+<!-- Related Concepts -->
+<section>
+<h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Related Concepts</h4>
+<div class="space-y-3">
+<a class="flex items-center justify-between p-4 bg-white rounded-xl border border-slate-200 hover:border-accent-coral transition-colors group" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-accent-coral">stream</span>
+<span class="text-sm font-medium">Promises</span>
+</div>
+<div class="w-12 h-1 bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-accent-coral w-[80%]"></div>
+</div>
+</a>
+<a class="flex items-center justify-between p-4 bg-white rounded-xl border border-slate-200 hover:border-accent-coral transition-colors group" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-accent-coral">cyclone</span>
+<span class="text-sm font-medium">The Event Loop</span>
+</div>
+<div class="w-12 h-1 bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-accent-coral w-[25%]"></div>
+</div>
+</a>
+<a class="flex items-center justify-between p-4 bg-white rounded-xl border border-slate-200 hover:border-accent-coral transition-colors group" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-accent-coral">gavel</span>
+<span class="text-sm font-medium">Try/Catch</span>
+</div>
+<div class="w-12 h-1 bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-accent-coral w-[95%]"></div>
+</div>
+</a>
+</div>
+</section>
+<!-- CTA -->
+<button class="mt-auto w-full py-4 bg-accent-coral text-white font-bold rounded-xl shadow-lg shadow-accent-coral/20 hover:scale-[1.02] transition-transform">
+            Start Coding Lab
+        </button>
+</aside>
+</body></html>

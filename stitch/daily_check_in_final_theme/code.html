@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Daily Check-in | DevMentor AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1a1a1a",
+                        "accent": "#E8736A", // Updated Coral accent
+                        "background-light": "#F5F4F2",
+                        "background-dark": "#191919",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Space Grotesk', sans-serif; }
+        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(8px); }
+    </style>
+</head>
+<body class="dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen" style="background-color: #F5F4F2;">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="w-72 border-r border-slate-200 dark:border-slate-800 dark:bg-background-dark flex flex-col justify-between p-6 bg-[#F5F4F2]">
+<div class="space-y-8">
+<div class="flex items-center gap-3 px-2">
+<div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-white" style="background-color: #E8736A;">
+<span class="material-symbols-outlined">terminal</span>
+</div>
+<div>
+<h1 class="text-lg font-bold leading-none tracking-tight">DevMentor AI</h1>
+<p class="text-xs text-slate-500 uppercase tracking-widest font-semibold mt-1">Premium Tier</p>
+</div>
+</div>
+<nav class="space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-full text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full bg-primary text-white shadow-lg" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-medium">Daily Check-in</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">psychology</span>
+<span class="font-medium">Mentorship</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">auto_stories</span>
+<span class="font-medium">Learning Path</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-medium">Settings</span>
+</a>
+</nav>
+</div>
+<button class="w-full py-4 bg-accent hover:bg-accent/90 text-white rounded-full font-bold flex items-center justify-center gap-2 shadow-xl shadow-accent/20 transition-all" style="background-color: #E8736A;">
+<span class="material-symbols-outlined">add</span>
+<span>New Request</span>
+</button>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto dark:bg-background-dark/50 p-8 flex gap-8 bg-[#F5F4F2]/50">
+<!-- Journal Form Column -->
+<div class="flex-1 max-w-2xl mx-auto">
+<header class="mb-8">
+<h2 class="text-4xl font-black text-primary dark:text-white">Daily Journal</h2>
+<p class="text-slate-500 mt-2">Wednesday, May 24th — Reflections on your growth.</p>
+</header>
+<section class="bg-white dark:bg-slate-900 rounded-xl shadow-soft border border-slate-100 dark:border-slate-800 p-8 space-y-8">
+<!-- Mood Selector -->
+<div>
+<label class="block text-sm font-bold uppercase tracking-wider text-slate-400 mb-4">How are you feeling today?</label>
+<div class="flex justify-between items-center gap-2">
+<button class="flex-1 py-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group">
+<span class="text-3xl grayscale group-hover:grayscale-0">😫</span>
+</button>
+<button class="flex-1 py-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group">
+<span class="text-3xl grayscale group-hover:grayscale-0">😕</span>
+</button>
+<button class="flex-1 py-4 rounded-xl border-2 border-accent bg-accent/5 transition-all group" style="border-color: #E8736A;">
+<span class="text-3xl">😐</span>
+</button>
+<button class="flex-1 py-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group">
+<span class="text-3xl grayscale group-hover:grayscale-0">🙂</span>
+</button>
+<button class="flex-1 py-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group">
+<span class="text-3xl grayscale group-hover:grayscale-0">🤩</span>
+</button>
+</div>
+</div>
+<!-- Work Done -->
+<div class="space-y-3">
+<label class="block text-sm font-bold uppercase tracking-wider text-slate-400">What did you accomplish?</label>
+<textarea class="w-full min-h-[140px] rounded-xl border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 focus:ring-accent focus:border-accent text-lg placeholder:text-slate-400" placeholder="List tasks, PRs, or features you tackled today..."></textarea>
+</div>
+<!-- Blockers -->
+<div class="space-y-3">
+<label class="block text-sm font-bold uppercase tracking-wider text-slate-400">Any blockers or challenges?</label>
+<textarea class="w-full min-h-[100px] rounded-xl border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 focus:ring-accent focus:border-accent text-lg placeholder:text-slate-400" placeholder="Technical hurdles or process bottlenecks..."></textarea>
+</div>
+<!-- Submit -->
+<div class="pt-4">
+<button class="w-full py-5 bg-primary dark:bg-accent text-white rounded-full font-bold text-lg hover:opacity-90 transition-all shadow-xl shadow-primary/10">
+                            Complete Check-in
+                        </button>
+</div>
+</section>
+</div>
+<!-- Side Panels -->
+<div class="w-80 space-y-6">
+<!-- Mentor Feedback -->
+<div class="bg-accent/10 dark:bg-accent/5 rounded-xl border border-accent/20 p-6" style="border-color: rgba(232, 115, 106, 0.2);">
+<div class="flex items-center gap-2 mb-4 text-accent" style="color: #E8736A;">
+<span class="material-symbols-outlined text-sm">robot_2</span>
+<h3 class="text-sm font-bold uppercase tracking-wider">Mentor Response — Yesterday</h3>
+</div>
+<p class="text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                        "Great job pushing through that React context bug yesterday! It shows solid debugging skills. Today, try to focus on refactoring that modular service we discussed."
+                    </p>
+<div class="mt-4 pt-4 border-t border-accent/10 flex items-center gap-2 text-xs font-medium text-accent" style="color: #E8736A;">
+<span class="material-symbols-outlined text-xs">auto_awesome</span>
+                        AI Mentor Suggestions Attached
+                    </div>
+</div>
+<!-- History -->
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 p-6">
+<h3 class="text-sm font-bold uppercase tracking-wider text-slate-400 mb-4">Check-in History</h3>
+<div class="space-y-4">
+<div class="flex items-start gap-3">
+<div class="w-2 h-2 mt-2 rounded-full bg-green-500"></div>
+<div>
+<p class="text-sm font-semibold">May 23, 2023</p>
+<p class="text-xs text-slate-500">Feeling: 🤩 • 4 tasks done</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-2 h-2 mt-2 rounded-full bg-yellow-500"></div>
+<div>
+<p class="text-sm font-semibold">May 22, 2023</p>
+<p class="text-xs text-slate-500">Feeling: 😐 • 2 tasks done</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-2 h-2 mt-2 rounded-full bg-green-500"></div>
+<div>
+<p class="text-sm font-semibold">May 21, 2023</p>
+<p class="text-xs text-slate-500">Feeling: 🙂 • 5 tasks done</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 py-2 text-xs font-bold text-slate-400 uppercase tracking-widest hover:text-primary dark:hover:text-white transition-colors">
+                        View Full History
+                    </button>
+</div>
+<!-- Progress Visual -->
+<div class="relative h-40 rounded-xl bg-cover bg-center overflow-hidden flex flex-col justify-end p-4 group" data-alt="Abstract gradient art in coral and dark shades" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBzfhHAoM8Lc-aSzB7QudEso0zmgc3R-d5gJM-PMGvEnVhezbA7_Y45b3ut010UFMM2r-ZeanR4qg9CDy4ctVakgJuLSpFnaNciaUGwF49ExB7U41m2p390tfI5Gj2DgIMWfLcXwHP3GLzkWm8J_wGgPezbIZaz1vYUqW998aatAdzwUzPBDhkoQWxCb35KSqsTHPfUo9nkj_Gp4nVve26jprmnv8egfgZGKbXhFGmmuc9cP5oHUeFCKhqSPBvACTmcPBLsDobVDHBN');">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent"></div>
+<div class="relative z-10">
+<p class="text-white text-xs font-bold uppercase">Weekly Streak</p>
+<p class="text-white text-2xl font-black">12 Days</p>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

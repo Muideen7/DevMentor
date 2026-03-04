@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Settings - DevMentor AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1a1a1a",
+                        "coral-accent": "#E8736A",
+                        "background-light": "#F5F4F2",
+                        "background-dark": "#191919",
+                        "accent-warm": "#E8E6E1",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e5e5e5;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased">
+<div class="flex h-screen overflow-hidden">
+<!-- Left Sidebar -->
+<aside class="w-64 bg-white dark:bg-zinc-900 border-r border-slate-200 dark:border-zinc-800 flex flex-col shrink-0">
+<div class="p-6 flex flex-col gap-8 h-full">
+<div class="flex items-center gap-3">
+<div class="size-10 bg-primary rounded-full flex items-center justify-center text-white">
+<span class="material-symbols-outlined">rocket_launch</span>
+</div>
+<div>
+<h1 class="text-primary dark:text-white text-base font-bold leading-none">DevMentor AI</h1>
+<p class="text-slate-500 text-xs mt-1">AI-Powered Mentorship</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2 flex-grow">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-zinc-800 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-zinc-800 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="text-sm font-medium">Roadmap</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-zinc-800 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="text-sm font-medium">Mentors</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-zinc-800 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="text-sm font-medium">Community</span>
+</a>
+<div class="mt-auto">
+<a class="flex items-center gap-3 px-4 py-3 bg-primary text-white rounded-xl shadow-lg shadow-black/5" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</div>
+</nav>
+</div>
+</aside>
+<!-- Center Content Area -->
+<main class="flex-1 overflow-y-auto custom-scrollbar bg-background-light dark:bg-background-dark px-8 py-8">
+<div class="max-w-3xl mx-auto space-y-8">
+<header class="flex justify-between items-center mb-8">
+<h2 class="text-3xl font-bold tracking-tight text-primary dark:text-white">Settings</h2>
+<button class="bg-white dark:bg-zinc-800 p-2 rounded-full border border-slate-200 dark:border-zinc-700">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400">notifications</span>
+</button>
+</header>
+<!-- Card 1: Profile Settings -->
+<section class="bg-white dark:bg-zinc-900 p-8 rounded-xl shadow-sm border border-slate-100 dark:border-zinc-800">
+<div class="flex items-center gap-4 mb-6">
+<span class="material-symbols-outlined p-2 bg-slate-100 dark:bg-zinc-800 rounded-lg text-slate-600 dark:text-slate-400">person</span>
+<h3 class="text-xl font-bold">Profile Settings</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex items-center gap-6 col-span-full mb-4">
+<div class="relative group">
+<img class="size-20 rounded-full object-cover ring-4 ring-slate-50 dark:ring-zinc-800" data-alt="User profile picture placeholder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChL_p_RvHA196Jd5AlSxH5m9NpEY3VZf5jKjwWFN5GVnNecWT_bHJnCOh_x5aXtKkenJRqnBb-nQFmSkKnGlS_rhRwkSKVNjJ2ZVs4EcetjRLfcMJ-1Z9sXACHsyIi46_K28__AkrjWqznI0H3ooDVnOCDqV6r8mjSt7KOCsH3NmSrdk0uoBXjjk-WLhOVicdkdlsFp_1BKjiUfl_g5WRgQVgJUYXWBeQv6s5Vmn1raAUZ4kYYjx9i4M2ver7HFBnUmyU-uVwzObww"/>
+<button class="absolute bottom-0 right-0 bg-primary text-white p-1.5 rounded-full border-2 border-white dark:border-zinc-900">
+<span class="material-symbols-outlined text-xs">edit</span>
+</button>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white">Profile Photo</h4>
+<p class="text-sm text-slate-500">JPG, GIF or PNG. Max 2MB.</p>
+</div>
+</div>
+<div class="space-y-1.5">
+<label class="text-sm font-medium text-slate-700 dark:text-slate-300">Full Name</label>
+<input class="w-full px-4 py-2.5 rounded-xl border-slate-200 dark:border-zinc-700 dark:bg-zinc-800 focus:ring-primary focus:border-primary transition-all" type="text" value="Alex Developer"/>
+</div>
+<div class="space-y-1.5">
+<label class="text-sm font-medium text-slate-700 dark:text-slate-300">Email Address</label>
+<input class="w-full px-4 py-2.5 rounded-xl border-slate-200 dark:border-zinc-700 dark:bg-zinc-800 focus:ring-primary focus:border-primary transition-all" type="email" value="alex@devmentor.ai"/>
+</div>
+<div class="space-y-1.5 col-span-full">
+<label class="text-sm font-medium text-slate-700 dark:text-slate-300">Current Role</label>
+<div class="flex items-center gap-2 px-4 py-2.5 bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 rounded-xl">
+<span class="material-symbols-outlined text-sm">terminal</span>
+<span class="text-sm text-slate-600 dark:text-slate-400 font-medium">Self-Taught Developer</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Card 2: Roadmap Preferences -->
+<section class="bg-white dark:bg-zinc-900 p-8 rounded-xl shadow-sm border border-slate-100 dark:border-zinc-800">
+<div class="flex items-center gap-4 mb-6">
+<span class="material-symbols-outlined p-2 bg-slate-100 dark:bg-zinc-800 rounded-lg text-slate-600 dark:text-slate-400">explore</span>
+<h3 class="text-xl font-bold">Roadmap Preferences</h3>
+</div>
+<div class="space-y-6">
+<div class="space-y-3">
+<label class="text-sm font-medium text-slate-700 dark:text-slate-300">Primary Learning Goal</label>
+<select class="w-full px-4 py-2.5 rounded-xl border-slate-200 dark:border-zinc-700 dark:bg-zinc-800">
+<option>Become a Full Stack Engineer</option>
+<option>Master AI &amp; Machine Learning</option>
+<option>Transition to UI/UX Design</option>
+<option>Cloud Architect Certification</option>
+</select>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-3">
+<label class="text-sm font-medium text-slate-700 dark:text-slate-300">Skill Level</label>
+<div class="flex gap-2">
+<button class="flex-1 py-2 text-xs font-bold border-2 text-white rounded-full border-coral-accent bg-coral-accent">Beginner</button>
+<button class="flex-1 py-2 text-xs font-bold border-2 border-slate-200 dark:border-zinc-700 rounded-full">Intermediate</button>
+</div>
+</div>
+<div class="space-y-3">
+<label class="text-sm font-medium text-slate-700 dark:text-slate-300">Commitment</label>
+<select class="w-full px-4 py-2.5 rounded-xl border-slate-200 dark:border-zinc-700 dark:bg-zinc-800 text-sm">
+<option>5-10 hours / week</option>
+<option>10-20 hours / week</option>
+<option>20+ hours / week</option>
+</select>
+</div>
+</div>
+</div>
+</section>
+<!-- Card 3: Notifications -->
+<section class="bg-white dark:bg-zinc-900 p-8 rounded-xl shadow-sm border border-slate-100 dark:border-zinc-800">
+<div class="flex items-center gap-4 mb-6">
+<span class="material-symbols-outlined p-2 bg-slate-100 dark:bg-zinc-800 rounded-lg text-slate-600 dark:text-slate-400">notifications_active</span>
+<h3 class="text-xl font-bold">Notifications</h3>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-4 bg-slate-50 dark:bg-zinc-800/50 rounded-xl">
+<div>
+<p class="font-bold text-sm">Daily Check-in Reminders</p>
+<p class="text-xs text-slate-500">Stay consistent with your learning streak</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-coral-accent"></div>
+</label>
+</div>
+<div class="flex items-center justify-between p-4 bg-slate-50 dark:bg-zinc-800/50 rounded-xl">
+<div>
+<p class="font-bold text-sm">Mentor Messages</p>
+<p class="text-xs text-slate-500">Get notified when your mentor replies</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-coral-accent"></div>
+</label>
+</div>
+<div class="flex items-center justify-between p-4 bg-slate-50 dark:bg-zinc-800/50 rounded-xl">
+<div>
+<p class="font-bold text-sm">Community Updates</p>
+<p class="text-xs text-slate-500">New posts and trending discussions</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-coral-accent"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- Card 4: Account & Security -->
+<section class="bg-white dark:bg-zinc-900 p-8 rounded-xl shadow-sm border border-slate-100 dark:border-zinc-800">
+<div class="flex items-center gap-4 mb-6">
+<span class="material-symbols-outlined p-2 bg-slate-100 dark:bg-zinc-800 rounded-lg text-slate-600 dark:text-slate-400">shield</span>
+<h3 class="text-xl font-bold">Account &amp; Security</h3>
+</div>
+<div class="space-y-6">
+<div class="flex items-center justify-between py-4 border-b border-slate-100 dark:border-zinc-800">
+<div>
+<p class="font-bold text-sm">Password</p>
+<p class="text-xs text-slate-500">Last changed 3 months ago</p>
+</div>
+<button class="text-sm font-bold text-primary dark:text-white underline decoration-2 underline-offset-4">Change Password</button>
+</div>
+<div class="flex items-center justify-between py-4 border-b border-slate-100 dark:border-zinc-800">
+<div class="flex items-center gap-3">
+<svg class="size-5" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+<div>
+<p class="font-bold text-sm">Google Account</p>
+<p class="text-xs text-slate-500">alex.dev@gmail.com</p>
+</div>
+</div>
+<span class="text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded-full uppercase tracking-wider">Connected</span>
+</div>
+<div class="pt-4">
+<button class="text-red-500 text-sm font-bold hover:underline">Delete Account</button>
+<p class="text-[10px] text-slate-400 mt-2 uppercase tracking-widest">Danger Zone</p>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Right Panel -->
+<aside class="w-80 bg-white dark:bg-zinc-900 border-l border-slate-200 dark:border-zinc-800 shrink-0 hidden xl:flex flex-col">
+<div class="p-8 space-y-10">
+<!-- Profile Strength -->
+<section>
+<h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6">Profile Strength</h3>
+<div class="flex flex-col items-center">
+<div class="relative size-40 mb-6">
+<svg class="size-full transform -rotate-90">
+<circle class="text-slate-100 dark:text-zinc-800" cx="80" cy="80" fill="transparent" r="70" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary" cx="80" cy="80" fill="transparent" r="70" stroke="currentColor" stroke-dasharray="440" stroke-dashoffset="110" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-3xl font-bold">75%</span>
+<span class="text-[10px] text-slate-500 font-medium">Complete</span>
+</div>
+</div>
+<p class="text-center text-sm text-slate-600 dark:text-slate-400 mb-6 px-4">You're almost there! Add your social links to reach 100%.</p>
+<button class="w-full py-3 bg-primary/5 dark:bg-white/5 text-primary dark:text-white rounded-xl font-bold text-sm hover:bg-primary/10 transition-all">
+                            Complete Profile
+                        </button>
+</div>
+</section>
+<hr class="border-slate-100 dark:border-zinc-800"/>
+<!-- Help & Support -->
+<section>
+<h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6">Help &amp; Support</h3>
+<div class="space-y-3">
+<a class="flex items-center justify-between group" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">menu_book</span>
+<span class="text-sm font-medium text-slate-600 dark:text-slate-400">Documentation</span>
+</div>
+<span class="material-symbols-outlined text-xs text-slate-300">north_east</span>
+</a>
+<a class="flex items-center justify-between group" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">support_agent</span>
+<span class="text-sm font-medium text-slate-600 dark:text-slate-400">Contact Support</span>
+</div>
+<span class="material-symbols-outlined text-xs text-slate-300">north_east</span>
+</a>
+<a class="flex items-center justify-between group" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">help_center</span>
+<span class="text-sm font-medium text-slate-600 dark:text-slate-400">FAQs</span>
+</div>
+<span class="material-symbols-outlined text-xs text-slate-300">north_east</span>
+</a>
+</div>
+<div class="mt-8 p-6 bg-slate-50 dark:bg-zinc-800/50 rounded-2xl border border-dashed border-slate-300 dark:border-zinc-700">
+<p class="text-xs font-bold mb-2">Need a personal mentor?</p>
+<p class="text-[10px] text-slate-500 leading-relaxed mb-4">Upgrade to Pro for 1-on-1 weekly sessions with industry experts.</p>
+<button class="w-full py-2 bg-primary text-white text-[11px] font-bold rounded-lg tracking-wider uppercase">Upgrade Now</button>
+</div>
+</section>
+</div>
+</aside>
+</div>
+</body></html>
