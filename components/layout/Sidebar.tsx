@@ -23,12 +23,12 @@ export default function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
 
   const menuItems = [
     { title: "Home", icon: "home", path: "/dashboard" },
-    { title: "My Roadmap", icon: "map", path: "/dashboard/roadmap" },
-    { title: "Code Review", icon: "code", path: "/dashboard/code-review" },
-    { title: "Daily Check-in", icon: "event_available", path: "/dashboard/check-in" },
-    { title: "Concept Library", icon: "library_books", path: "/dashboard/concepts" },
-    { title: "Community", icon: "groups", path: "/dashboard/community" },
-    { title: "Progress History", icon: "history", path: "/dashboard/progress" },
+    { title: "My Roadmap", icon: "map", path: "/roadmap" },
+    { title: "Code Review", icon: "code", path: "/code-review" },
+    { title: "Daily Check-in", icon: "event_available", path: "/check-in" },
+    { title: "Concept Library", icon: "library_books", path: "/concepts" },
+    { title: "Community", icon: "groups", path: "/community" },
+    { title: "Progress History", icon: "history", path: "/progress" },
   ]
 
   if (!mounted) return null
