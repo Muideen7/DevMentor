@@ -15,16 +15,28 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+const baseUrl = process.env.NEXTAUTH_URL ?? "http://localhost:3000";
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXTAUTH_URL ?? "http://localhost:3000"),
+  metadataBase: new URL(baseUrl),
   title: "DevMentor AI | Stop Learning to Code Alone",
-  description: "DevMentor AI is an AI-powered mentorship platform for self-taught developers. Get personalized roadmaps, instant code reviews, and daily guidance to accelerate your career.",
-  keywords: ["AI mentor", "coding bootcamp alternative", "learn to code", "self-taught developer", "coding roadmap", "code review", "personalized learning"],
+  description:
+    "DevMentor AI is an AI-powered mentorship platform for self-taught developers. Get personalized roadmaps, instant code reviews, and daily guidance to accelerate your career.",
+  keywords: [
+    "AI mentor",
+    "coding bootcamp alternative",
+    "learn to code",
+    "self-taught developer",
+    "coding roadmap",
+    "code review",
+    "personalized learning",
+  ],
   authors: [{ name: "DevMentor AI Team" }],
   openGraph: {
     title: "DevMentor AI | Stop Learning to Code Alone",
-    description: "The AI-powered mentor you never had. Personalized roadmaps, code reviews, and constant progress tracking for self-taught devs.",
-    url: "https://devmentor-ai.com",
+    description:
+      "The AI-powered mentor you never had. Personalized roadmaps, code reviews, and constant progress tracking for self-taught devs.",
+    url: baseUrl,
     siteName: "DevMentor AI",
     images: [
       {
@@ -61,9 +73,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <head>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-25..0&display=block" />
-      </head>
       <body
         className={`${spaceGrotesk.variable} antialiased bg-background-light text-text-main font-display`}
       >
