@@ -42,7 +42,9 @@ export default async function DashboardPage() {
       ? Math.round((roadmap.currentWeek / (roadmap.totalWeeks || 1)) * 100)
       : 0,
     hasRoadmap,
-    continuePath: hasRoadmap ? "/dashboard/roadmap" : "/onboarding/step-1",
+    continuePath: hasRoadmap 
+      ? (activeWeek ? `/roadmap/week/${activeWeek._id}` : "/roadmap")
+      : "/onboarding/step-1",
   }
 
   // Stats
