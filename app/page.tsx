@@ -23,7 +23,7 @@ export default function LandingPage() {
             Your Personal AI Mentor for <br className="hidden md:block"/> Self-Taught Developers
           </h1>
           <p className="text-lg md:text-xl text-text-main/80 max-w-2xl mx-auto mb-10 leading-relaxed">
-            No senior dev? No problem. DevMentor builds your roadmap, reviews your code, and guides you through every block — at 2am if it has to.
+            No senior dev? No problem. DevMentor builds your roadmap, reviews your code, and guides you through every block at 2am if it has to.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
             <Link href="/login" className="w-full sm:w-auto bg-primary text-white px-10 py-4 rounded-full text-lg font-bold hover:scale-105 transition-transform text-center">
@@ -429,28 +429,28 @@ export default function LandingPage() {
           <div>
             <h5 className="font-bold mb-6 uppercase text-xs tracking-widest">Product</h5>
             <ul className="space-y-4 text-sm text-text-body">
-              <li><a className="hover:text-primary" href="#">Features</a></li>
-              <li><a className="hover:text-primary" href="#">Roadmaps</a></li>
-              <li><a className="hover:text-primary" href="#">Pricing</a></li>
-              <li><a className="hover:text-primary" href="#">Changelog</a></li>
+              <li><a className="hover:text-primary transition-colors" href="/#features">Features</a></li>
+              <li><a className="hover:text-primary transition-colors" href="/#roadmap">Roadmaps</a></li>
+              <li><a className="hover:text-primary transition-colors" href="/#pricing">Pricing</a></li>
+              <li><a className="hover:text-primary transition-colors" href="/#features">Changelog</a></li>
             </ul>
           </div>
           <div>
             <h5 className="font-bold mb-6 uppercase text-xs tracking-widest">Resources</h5>
             <ul className="space-y-4 text-sm text-text-body">
-              <li><a className="hover:text-primary" href="#">Community</a></li>
-              <li><a className="hover:text-primary" href="#">Documentation</a></li>
-              <li><a className="hover:text-primary" href="#">Blog</a></li>
-              <li><a className="hover:text-primary" href="#">Free Courses</a></li>
+              <li><a className="hover:text-primary transition-colors" href="/#features">Community</a></li>
+              <li><a className="hover:text-primary transition-colors" href="/#features">Documentation</a></li>
+              <li><a className="hover:text-primary transition-colors" href="/#features">Blog</a></li>
+              <li><a className="hover:text-primary transition-colors" href="/#roadmap">Free Courses</a></li>
             </ul>
           </div>
           <div>
             <h5 className="font-bold mb-6 uppercase text-xs tracking-widest">Company</h5>
             <ul className="space-y-4 text-sm text-text-body">
-              <li><a className="hover:text-primary" href="#">About Us</a></li>
-              <li><a className="hover:text-primary" href="#">Careers</a></li>
-              <li><a className="hover:text-primary" href="#">Privacy</a></li>
-              <li><a className="hover:text-primary" href="#">Terms</a></li>
+              <li><a className="hover:text-primary transition-colors" href="/about">About Us</a></li>
+              <li><a className="hover:text-primary transition-colors" href="/careers">Careers</a></li>
+              <li><a className="hover:text-primary transition-colors" href="/privacy">Privacy</a></li>
+              <li><a className="hover:text-primary transition-colors" href="/terms">Terms</a></li>
             </ul>
           </div>
         </div>
