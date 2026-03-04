@@ -21,7 +21,7 @@
 | Styling | Tailwind CSS + ShadCN UI | latest |
 | Database | MongoDB via Mongoose | latest |
 | Auth | NextAuth.js | v5 (latest) |
-| AI Integration | Google Gemini API (free tier) | gemini-1.5-flash |
+| AI Integration | Google Gemini API (free tier) | gemini-2.5-flash |
 | AI SDK | Vercel AI SDK + @ai-sdk/google | latest |
 | State Management | Zustand | latest |
 | File Uploads | Uploadthing | latest |
@@ -94,7 +94,7 @@ devmentor-ai/
 │   │   └── layout.tsx
 │   ├── (dashboard)/
 │   │   ├── dashboard/page.tsx
-│   │   ├── roadmap/page.tsx
+│   │   ├── roadmap/page.tsx        # Server Component — fetches roadmap from DB directly
 │   │   ├── code-review/page.tsx
 │   │   ├── check-in/page.tsx
 │   │   ├── concepts/page.tsx
@@ -104,12 +104,15 @@ devmentor-ai/
 │   ├── api/
 │   │   ├── auth/[...nextauth]/route.ts
 │   │   ├── ai/
-│   │   │   ├── roadmap/route.ts
+│   │   │   ├── roadmap/route.ts    # POST — generates roadmap, sets onboardingComplete: true
 │   │   │   ├── review/route.ts
 │   │   │   ├── checkin/route.ts
 │   │   │   └── chat/route.ts
+│   │   ├── roadmap/
+│   │   │   ├── route.ts            # GET — fetch existing roadmap
+│   │   │   └── week/[weekId]/complete/route.ts   # PATCH — mark week complete, unlock next
+│   │   ├── onboarding/complete/route.ts   # POST — save profile (does NOT set onboardingComplete)
 │   │   ├── users/route.ts
-│   │   ├── roadmap/route.ts
 │   │   └── community/route.ts
 │   ├── globals.css
 │   └── layout.tsx
@@ -124,9 +127,9 @@ devmentor-ai/
 │   │   ├── SummaryCards.tsx
 │   │   └── RecentConversations.tsx
 │   ├── roadmap/
-│   │   ├── RoadmapTimeline.tsx
-│   │   ├── PhaseBlock.tsx
-│   │   └── WeekCard.tsx
+│   │   ├── RoadmapTimeline.tsx     # Client — overall progress + phase list, handles optimistic updates
+│   │   ├── PhaseBlock.tsx          # Client — one phase header + its week cards
+│   │   └── WeekCard.tsx            # Client — locked/active/complete with expand/collapse
 │   ├── code-review/
 │   │   ├── CodeEditor.tsx
 │   │   └── ReviewResponse.tsx
@@ -152,7 +155,7 @@ devmentor-ai/
 │   │       ├── CodeReview.ts
 │   │       └── Post.ts
 │   ├── ai/
-│   │   ├── client.ts               # Gemini client via Vercel AI SDK
+│   │   ├── client.ts               # Gemini client via Vercel AI SDK (gemini-2.0-flash)
 │   │   ├── context.ts              # Builds user context for every AI call
 │   │   └── prompts/
 │   │       ├── mentor.ts           # Base mentor personality prompt
@@ -168,11 +171,12 @@ devmentor-ai/
 ├── stores/
 │   └── useAppStore.ts              # Zustand global store
 ├── types/
-│   └── index.ts                    # All shared TypeScript types
-├── middleware.ts                   # Route protection
+│   ├── roadmap.ts                  # Roadmap, RoadmapPhase, RoadmapWeek types
+│   └── next-auth.d.ts              # NextAuth session augmentation
+├── proxy.ts                        # Route protection middleware (Next.js 16 proxy.ts convention)
+├── middleware.ts                   # Re-exports from proxy.ts (required by older Next.js convention)
 ├── .env.local                      # Never commit
 ├── .env.example                    # Commit this with empty values
-├── tailwind.config.ts
 ├── next.config.ts
 └── package.json
 ```
