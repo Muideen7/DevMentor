@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-25..0&display=block');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -50,7 +47,7 @@
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
-  
+
   /* Additional Radii for ShadCN compatibility */
   --radius-sm: calc(0.625rem - 4px);
   --radius-md: calc(0.625rem - 2px);
