@@ -13,9 +13,9 @@ export default function LandingPage() {
         <div className="max-w-5xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 bg-white/30 backdrop-blur-sm px-4 py-1.5 rounded-full border border-white/40 mb-8 shadow-sm">
             <span className="flex -space-x-2">
-              <div className="w-6 h-6 rounded-full border-2 border-white bg-slate-200"></div>
-              <div className="w-6 h-6 rounded-full border-2 border-white bg-slate-300"></div>
-              <div className="w-6 h-6 rounded-full border-2 border-white bg-slate-400"></div>
+              <img src="https://i.pravatar.cc/100?u=dev1" alt="User" className="w-6 h-6 rounded-full border-2 border-white object-cover" />
+              <img src="https://i.pravatar.cc/100?u=dev2" alt="User" className="w-6 h-6 rounded-full border-2 border-white object-cover" />
+              <img src="https://i.pravatar.cc/100?u=dev3" alt="User" className="w-6 h-6 rounded-full border-2 border-white object-cover" />
             </span>
             <span className="text-xs font-bold uppercase tracking-wider">2,400+ developers already learning</span>
           </div>
@@ -248,7 +248,7 @@ export default function LandingPage() {
             <div className="bg-white p-8 rounded-lg shadow-soft border border-primary/5">
               <p className="text-text-body mb-8 italic">"I was stuck on freeCodeCamp for months. DevMentor gave me the structure I needed to finally build my own portfolio projects."</p>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-accent-coral/20"></div>
+                <img src="https://i.pravatar.cc/150?u=tunde" alt="Tunde" className="w-12 h-12 rounded-full border border-slate-100 object-cover" />
                 <div>
                   <p className="font-bold">Tunde A.</p>
                   <p className="text-xs text-text-body">Frontend Developer @ ALX</p>
@@ -258,9 +258,7 @@ export default function LandingPage() {
             <div className="bg-white p-8 rounded-lg shadow-soft border border-primary/5">
               <p className="text-text-body mb-8 italic">"The AI Code Review is basically like having a senior developer sitting next to me. I've learned more in 2 weeks than in 2 months of YouTube."</p>
               <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-accent-coral flex items-center justify-center">
-                  <span className="material-symbols-outlined text-white text-sm text-[1.2rem]">person</span>
-                </div>
+                <img src="https://i.pravatar.cc/150?u=priya" alt="Priya" className="w-12 h-12 rounded-full border border-slate-100 object-cover" />
                 <div>
                   <p className="font-bold">Priya M.</p>
                   <p className="text-xs text-text-body">Self-taught Data Analyst</p>
@@ -270,7 +268,7 @@ export default function LandingPage() {
             <div className="bg-white p-8 rounded-lg shadow-soft border border-primary/5">
               <p className="text-text-body mb-8 italic">"The roadmap feature is a game changer. It cuts out all the noise and tells me exactly what I need to learn to get hired."</p>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10"></div>
+                <img src="https://i.pravatar.cc/150?u=marcus" alt="Marcus" className="w-12 h-12 rounded-full border border-slate-100 object-cover" />
                 <div>
                   <p className="font-bold">Marcus L.</p>
                   <p className="text-xs text-text-body">Fullstack Student</p>

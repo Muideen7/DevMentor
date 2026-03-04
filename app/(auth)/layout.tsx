@@ -38,7 +38,7 @@ export default function AuthLayout({
                 "I finally know what to learn next. The AI roadmap is a game changer for my career path."
               </p>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-slate-200"></div>
+                <img src="https://i.pravatar.cc/100?u=tunde-auth" alt="Tunde" className="w-10 h-10 rounded-full border border-slate-100 object-cover" />
                 <div>
                   <p className="text-sm font-bold text-slate-900">Tunde A.</p>
                   <p className="text-xs text-slate-500">Fullstack Developer, Lagos</p>
@@ -65,6 +65,10 @@ export default function AuthLayout({
       {/* RIGHT COLUMN (60%) */}
       <section className="w-full lg:w-[60%] flex flex-col items-center justify-center p-8 lg:p-16 overflow-y-auto bg-background-light">
         <div className="w-full max-w-md">
+          {/* Mobile Logo */}
+          <div className="flex justify-center lg:hidden mb-12">
+            <Logo />
+          </div>
           {children}
         </div>
       </section>

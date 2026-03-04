@@ -1,6 +1,7 @@
 "use client"
 
-import { useState, useCallback } from "react"
+import { useState, useCallback, useRef } from "react"
+import Link from "next/link"
 import type { Roadmap, RoadmapWeek } from "@/types/roadmap"
 import PhaseBlock from "./PhaseBlock"
 import { cn } from "@/lib/utils"
@@ -49,7 +50,12 @@ export default function RoadmapTimeline({ initialRoadmap }: RoadmapTimelineProps
     : 0
 
   const activePhase = roadmap.phases.find(p => p.status === 'active')
-  const activeWeek = activePhase?.weeks.find(w => w.status === 'active')
+  const activeFocusWeek = activePhase?.weeks.find(w => w.status === 'active')
+  const phaseRefs = useRef<Record<string, HTMLDivElement | null>>({})
+
+  const scrollToPhase = (phaseId: string) => {
+    phaseRefs.current[phaseId]?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
 
   return (
     <div>
@@ -62,9 +68,9 @@ export default function RoadmapTimeline({ initialRoadmap }: RoadmapTimelineProps
             </p>
             <p className="text-slate-600 text-sm font-medium">
               {completedCount} of {roadmap.totalWeeks} weeks complete
-              {activeWeek && (
+              {activeFocusWeek && (
                 <span className="text-accent-coral font-bold">
-                  {" "}· Currently on: {activeWeek.title}
+                  {" "}· Currently on: {activeFocusWeek.title}
                 </span>
               )}
             </p>
@@ -101,17 +107,71 @@ export default function RoadmapTimeline({ initialRoadmap }: RoadmapTimelineProps
         </div>
       </div>
 
-      {/* Phase List */}
-      <div className="space-y-12">
-        {roadmap.phases.map((phase, i) => (
-          <PhaseBlock
+      {/* Active Week Focus Card */}
+      {activeFocusWeek && (
+        <div className="bg-slate-900 rounded-3xl p-8 mb-12 text-white relative overflow-hidden shadow-2xl group">
+          <div className="absolute top-0 right-0 size-64 bg-accent-coral/20 rounded-full -translate-y-24 translate-x-24 blur-3xl" />
+          
+          <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div>
+              <div className="flex items-center gap-2 mb-3">
+                <span className="px-2 py-0.5 bg-accent-coral text-white text-[10px] font-black uppercase tracking-wider rounded-full flex items-center gap-1">
+                  <span className="size-2 bg-white rounded-full animate-pulse" />
+                  Your Active Goal
+                </span>
+                <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                  Phase {activePhase?.phaseNumber} · Week {activeFocusWeek.weekNumber}
+                </span>
+              </div>
+              <h2 className="text-2xl md:text-3xl font-black mb-3 group-hover:text-accent-coral transition-colors">
+                {activeFocusWeek.title}
+              </h2>
+              <p className="text-slate-400 text-sm font-medium max-w-md">
+                Master the core concepts of this week to unlock the next phase of your journey.
+              </p>
+            </div>
+            
+            <Link 
+              href={`/roadmap/week/${activeFocusWeek._id}`}
+              className="shrink-0 flex items-center gap-3 px-8 py-4 bg-white text-slate-900 rounded-full font-black text-xs uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-xl"
+            >
+              Start Focusing
+              <span className="material-symbols-outlined text-sm font-black">rocket_launch</span>
+            </Link>
+          </div>
+        </div>
+      )}
+
+      {/* Phase Navigation Bar */}
+      <div className="flex items-center gap-3 mb-8 overflow-x-auto pb-4 scrollbar-none sticky top-0 md:top-4 z-20 bg-background-light/80 backdrop-blur-md py-2 -mx-4 px-4">
+        {roadmap.phases.map((phase) => (
+          <button
             key={phase._id}
-            phase={phase}
-            phaseIndex={i}
-            totalPhases={roadmap.phases.length}
-            onMarkComplete={handleMarkComplete}
-            updatingWeekId={updatingWeekId}
-          />
+            onClick={() => scrollToPhase(phase._id)}
+            className={cn(
+              "px-5 py-2.5 rounded-full text-xs font-black uppercase tracking-wider transition-all whitespace-nowrap border-2",
+              phase.status === 'active' 
+                ? "bg-white border-accent-coral text-accent-coral shadow-lg shadow-accent-coral/10" 
+                : "bg-white border-slate-100 text-slate-400 hover:border-slate-300 hover:text-slate-600"
+            )}
+          >
+            Phase {phase.phaseNumber}
+          </button>
+        ))}
+      </div>
+
+      {/* Phase List */}
+      <div className="space-y-16">
+        {roadmap.phases.map((phase, i) => (
+          <div key={phase._id} ref={el => { phaseRefs.current[phase._id] = el }}>
+            <PhaseBlock
+              phase={phase}
+              phaseIndex={i}
+              totalPhases={roadmap.phases.length}
+              onMarkComplete={handleMarkComplete}
+              updatingWeekId={updatingWeekId}
+            />
+          </div>
         ))}
       </div>
 

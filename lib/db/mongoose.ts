@@ -13,14 +13,25 @@ export async function connectDB() {
 
   if (!cached.promise) {
     console.log("DB: Initializing new Mongoose connection...")
-    cached.promise = mongoose.connect(MONGODB_URI, { bufferCommands: false })
+    cached.promise = mongoose.connect(MONGODB_URI, {
+      bufferCommands: false,
+      family: 4, // Force IPv4 (Crucial for Windows/ISP DNS issues)
+      serverSelectionTimeoutMS: 5000, // Don't wait 30 seconds to fail
+      heartbeatFrequencyMS: 1000, // Check connection more frequently
+    })
       .then((mongoose) => {
         console.log("DB: Connected successfully!")
         return mongoose
       })
       .catch((err) => {
+        if (err.message?.includes('querySrv')) {
+          console.error("DB: Connection FAILED: SRV resolution error.")
+        }
+        if (err.name === 'MongooseServerSelectionError') {
+          console.error("DB: Connection FAILED: Timeout. Your IP may not be whitelisted in Atlas, or your firewall is blocking port 27017.")
+        }
         console.error("DB: Connection FAILED:", err)
-        cached.promise = null // Reset so we can try again
+        cached.promise = null
         throw err
       })
   }

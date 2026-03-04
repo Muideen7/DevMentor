@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils"
 import type { RoadmapWeek } from "@/types/roadmap"
 import { useState } from "react"
+import Link from "next/link"
 
 interface WeekCardProps {
   week: RoadmapWeek
@@ -147,27 +148,37 @@ export default function WeekCard({ week, phaseId, onMarkComplete, isUpdating }: 
           )}
 
           {/* Mark Complete CTA */}
-          {isActive && (
-            <button
-              onClick={() => onMarkComplete(week._id)}
-              disabled={isUpdating}
-              className="flex items-center gap-2 px-5 py-2.5 bg-accent-coral text-white text-xs font-bold rounded-full hover:brightness-105 active:scale-95 transition-all shadow-md shadow-accent-coral/20 disabled:opacity-60 disabled:cursor-not-allowed"
+          <div className="flex flex-wrap gap-3">
+            {isActive && (
+              <button
+                onClick={() => onMarkComplete(week._id)}
+                disabled={isUpdating}
+                className="flex items-center gap-2 px-5 py-2.5 bg-accent-coral text-white text-xs font-bold rounded-full hover:brightness-105 active:scale-95 transition-all shadow-md shadow-accent-coral/20 disabled:opacity-60 disabled:cursor-not-allowed"
+              >
+                {isUpdating ? (
+                  <>
+                    <span className="material-symbols-outlined text-sm animate-spin">sync</span>
+                    Updating...
+                  </>
+                ) : (
+                  <>
+                    <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>
+                      check_circle
+                    </span>
+                    Mark as Complete
+                  </>
+                )}
+              </button>
+            )}
+            
+            <Link 
+              href={`/roadmap/week/${week._id}`}
+              className="flex items-center gap-2 px-5 py-2.5 bg-[#1A1A1A] text-white text-xs font-bold rounded-full hover:brightness-125 active:scale-95 transition-all shadow-md shadow-slate-900/10"
             >
-              {isUpdating ? (
-                <>
-                  <span className="material-symbols-outlined text-sm animate-spin">sync</span>
-                  Updating...
-                </>
-              ) : (
-                <>
-                  <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>
-                    check_circle
-                  </span>
-                  Mark as Complete
-                </>
-              )}
-            </button>
-          )}
+              <span className="material-symbols-outlined text-sm">visibility</span>
+              Focus View
+            </Link>
+          </div>
         </div>
       )}
     </div>
