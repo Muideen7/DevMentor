@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/shared/Toaster";
+import { Providers } from "@/components/providers/SessionProvider";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -66,7 +67,9 @@ export default function RootLayout({
       <body
         className={`${spaceGrotesk.variable} antialiased bg-background-light text-text-main font-display`}
       >
-        {children}
+        <Providers>
+          {children}
+        </Providers>
         <Toaster />
       </body>
     </html>
