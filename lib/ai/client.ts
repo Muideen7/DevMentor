@@ -4,5 +4,5 @@ export const google = createGoogleGenerativeAI({
   apiKey: process.env.GEMINI_API_KEY!,
 })
 
-export const googleModel = google('gemini-2.5-flash')
-export const mentorModel = google('gemini-2.5-flash')
+export const googleModel = google('gemini-2.0-flash')
+export const mentorModel = google('gemini-2.0-flash')

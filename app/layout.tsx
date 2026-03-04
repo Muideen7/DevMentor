@@ -65,8 +65,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-25..200&display=block"
+        />
+      </head>
       <body
-        className={`${spaceGrotesk.variable} antialiased bg-background-light text-text-main font-display`}
+        className={`${spaceGrotesk.variable} ${spaceGrotesk.className} antialiased bg-background-light text-text-main font-display`}
       >
         <Providers>
           {children}

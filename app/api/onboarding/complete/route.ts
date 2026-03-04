@@ -46,7 +46,7 @@ export async function POST(req: Request) {
                 currentLevel: validatedData.currentLevel,
                 stack: validatedData.stack,
                 hoursPerWeek: validatedData.hoursPerWeek,
-                onboardingComplete: true,
+                // onboardingComplete is NOT set here, only after roadmap is generated
             },
             { new: true }
         )

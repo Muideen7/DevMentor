@@ -66,6 +66,9 @@ export async function POST(req: Request) {
             { upsert: true, new: true }
         )
 
+        // Mark onboarding complete only after successful roadmap generation
+        await User.findByIdAndUpdate(user._id, { onboardingComplete: true })
+
         return NextResponse.json({
             success: true,
             data: roadmap
