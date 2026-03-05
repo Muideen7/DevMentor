@@ -2,9 +2,15 @@
 
 import { useSession } from "next-auth/react"
 import { cn } from "@/lib/utils"
+import { useState, useEffect } from "react"
 
 export default function RightPanel() {
   const { data: session } = useSession()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   return (
     <aside className="hidden xl:flex w-[300px] bg-white dark:bg-zinc-900 border-l border-slate-200 dark:border-zinc-800 fixed right-0 h-screen overflow-y-auto p-6 z-40 flex-col">
