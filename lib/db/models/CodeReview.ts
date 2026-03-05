@@ -14,13 +14,14 @@ const CodeReviewSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    issue: String,
-    explanation: String,
-    fixedCode: String,
-    concept: String,
+    feedback: {
+        type: String,
+        required: true,
+    },
     createdAt: {
         type: Date,
         default: Date.now,
+        index: true
     },
 })
 

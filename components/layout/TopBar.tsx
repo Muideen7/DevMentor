@@ -43,7 +43,7 @@ export default function TopBar({ isSidebarOpen, toggleSidebar }: TopBarProps) {
         </button>
         
         <Link 
-          href="/dashboard/roadmap" 
+          href="/roadmap" 
           className="bg-primary dark:bg-white text-white dark:text-primary px-5 py-2 rounded-full text-[10px] font-bold hover:opacity-90 transition-opacity flex items-center gap-2"
         >
           <span className="material-symbols-outlined text-sm">auto_awesome</span>

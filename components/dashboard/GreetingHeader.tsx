@@ -1,6 +1,6 @@
 "use client"
 
-import { useMemo } from "react"
+import { useMemo, useState, useEffect } from "react"
 
 interface GreetingHeaderProps {
   firstName: string
@@ -16,8 +16,17 @@ function getGreeting(): { word: string; emoji: string } {
 }
 
 export default function GreetingHeader({ firstName, activeWeekTitle }: GreetingHeaderProps) {
-  // Computed once on mount — no hydration mismatch risk since it's a client component
-  const { word, emoji } = useMemo(() => getGreeting(), [])
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  // Computed once on mount — safe from hydration mismatch
+  const { word, emoji } = useMemo(() => {
+    if (!mounted) return { word: "Hello", emoji: "👋" }
+    return getGreeting()
+  }, [mounted])
 
   return (
     <header className="mb-8">

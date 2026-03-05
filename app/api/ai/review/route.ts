@@ -13,22 +13,41 @@ export async function POST(req: Request) {
         }
 
         const { messages } = await req.json()
+        const lastMessage = messages[messages.length - 1]
 
         // Connect to DB for logging
         await connectDB()
 
         const result = await streamText({
             model: mentorModel,
-            system: "You are a senior software engineer mentor. Provide a concise, helpful code review with specific improvements. Focus on logic, readability, and performance.",
+            system: `You are a senior software engineer mentor. Your goal is to provide structured, helpful code reviews.
+            
+            ALWAYS respond following this EXACT format:
+            ### 🔍 Issue Found
+            [Describe the problem in plain English at the user's skill level]
+            
+            ### 💡 Why This Happened
+            [Explain the underlying concept or computer science principle]
+            
+            ### ✅ Here's The Fix
+            [Provide the corrected code block. Use markdown code blocks with the correct language tag]
+            
+            Keep the tone professional and encouraging. Focus on logic, readability, and performance.`,
             messages,
             onFinish: async ({ text }) => {
                 // Determine language and code from the last message
-                const lastMsg = messages[messages.length - 1].text || ""
+                const content = lastMessage.content || lastMessage.text || ""
+                const langMatch = content.match(/Review this (\w+) code/)
+                const language = langMatch ? langMatch[1] : 'unknown'
+
+                // Extract code block if possible, otherwise use whole text
+                const codeMatch = content.match(/```(?:\w+)?\n([\s\S]*?)```/)
+                const codeToSave = codeMatch ? codeMatch[1] : content
 
                 await CodeReview.create({
                     userId: session.user.id,
-                    code: lastMsg,
-                    language: 'unknown', // Simplified for logging
+                    originalCode: codeToSave,
+                    language: language,
                     feedback: text
                 })
             }
